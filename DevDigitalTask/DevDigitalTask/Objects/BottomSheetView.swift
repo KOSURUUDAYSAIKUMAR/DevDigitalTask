@@ -1,10 +1,4 @@
-//
-//  BottomSheetView.swift
-//  MapKitSearchView
-//
-//  Created by Philip on 10/11/18.
-//  Copyright © 2018 Next Generation. All rights reserved.
-//
+
 
 import UIKit
 

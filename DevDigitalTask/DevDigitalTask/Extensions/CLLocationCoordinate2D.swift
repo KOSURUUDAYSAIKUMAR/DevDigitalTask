@@ -1,9 +1,4 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kevin Kieffer on 6/9/20.
-//
+
 
 import Foundation
 import MapKit

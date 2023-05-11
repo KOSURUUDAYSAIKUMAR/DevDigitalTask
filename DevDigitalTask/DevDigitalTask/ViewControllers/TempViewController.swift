@@ -13,79 +13,29 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var close: UIButton!
     @IBOutlet weak var nearMeParent: UIView!
-    var nearMe: MKUserTrackingButton?
     @IBOutlet weak var compassParent: UIView!
-    var compass: MKCompassButton?
     @IBOutlet weak var tabView: UIView!
-    
     // MARK: - Bottom Sheet Views & Variables
-    @IBOutlet  var searchBar: UISearchBar!
-    @IBOutlet  var tableView: UITableView!
-    @IBOutlet private var stackViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     private var stackViewExpandedHeight: CGFloat?
     
-    ///This ratio controls how large the expanded stack can be relative to the height of the view.  A value of >= 1.0 will consume the entire height. A value of 0.5 is
-    ///half the height, a value of 0 will not take up any height (except allowing for the search bar and keyboard).  The default is 0.45, just slightly less than half to show the
-    ///current position marker.  Note: the expanded height can grow when scrolling through the list.
-    var expandedRatio : CGFloat = 0.45
-    
-    // Maximum height for expanded stack view (when scrolling the list)
-    private var stackViewMaxExpandedHeight: CGFloat {
-        return view.frame.height - 160
-    }
-    // Maximum height for stack view when navigating map.
-    private var stackViewMaxMapInteractedHeight: CGFloat {
-        
-        let ratio = min(expandedRatio, 1.0)
-        return max((view.frame.height) * ratio, searchBarHeight)
-    }
-    // Initial table view y offset when beginning pan.
-    private var tableViewPanInitialOffset: CGFloat?
-    private var tableViewHeight: CGFloat {
-        return tableView.frame.height
-    }
-    private var tableViewContentHeight: CGFloat {
-        return tableView.backgroundView?.bounds.size.height ?? tableView.contentSize.height
-    }
-    private var searchBarHeight: CGFloat {
-        return searchBar.frame.height
-    }
-    private var searchBarText: String {
-        return searchBar.text ?? ""
-    }
-    private var safeAreaInsetsBottom: CGFloat {
-        return view.safeAreaInsets.bottom
-    }
-    private var keyboardHeight: CGFloat = 0
-    private var isExpanded = false
-    private var isDragged = false {
-        didSet {
-            if isDragged {
-                searchBar.resignFirstResponder() // On drag, dismiss Keyboard
-            }
-        }
-    }
-    private var isUserMapInteracted = false {
-        didSet {
-            if isUserMapInteracted {
-                userDidMapInteract()
-            }
-        }
-    }
-    private var isUserInteracted: Bool {
-        // User interacted if dragging gesture or map interaction.
-        return isDragged || isUserMapInteracted
-    }
     
     // MARK: - Search Variables
-    private var searchCompletionRequest: MKLocalSearchCompleter? = MKLocalSearchCompleter()
-    private var searchCompletions = [MKLocalSearchCompletion]()
+    var searchCompletionRequest: MKLocalSearchCompleter? = MKLocalSearchCompleter()
+    var searchCompletions = [MKLocalSearchCompletion]()
+    var searchRequestFuture: Timer?
+    var searchRequest: MKLocalSearch?
+    var searchMapItems = [MKMapItem]()
+    var geocodeRequestFuture: Timer?
+    var mapAnnotations = Set<MKPlacemark>()
+    var expandedRatio : CGFloat = 0.45
+    open var delegate: MapKitSearchDelegate?
+    var nearMe: MKUserTrackingButton?
+    public var compass: MKCompassButton?
     
-    private var searchRequestFuture: Timer?
-    private var searchRequest: MKLocalSearch?
-    private var searchMapItems = [MKMapItem]()
-    
-    private var tableViewType: TableType = .searchCompletion {
+    var tableViewType: TableType = .searchCompletion {
         didSet {
             switch tableViewType {
             case .searchCompletion:
@@ -96,17 +46,33 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             tableView.reloadData()
         }
     }
-    private enum TableType {
-        case searchCompletion
-        case mapItem
+    var keyboardHeight: CGFloat = 0
+    var tableViewPanInitialOffset: CGFloat?
+    var tableViewContentHeight: CGFloat {
+        return tableView.backgroundView?.bounds.size.height ?? tableView.contentSize.height
     }
     
-    private var geocodeRequestFuture: Timer?
-    private var mapAnnotations = Set<MKPlacemark>()
+    var searchBarHeight: CGFloat {
+        return searchBar.frame.height
+    }
+    var searchBarTextField: UITextField? {
+        return searchBar.value(forKey: "searchField") as? UITextField
+    }
+    var searchBarText: String {
+        return searchBar.text ?? ""
+    }
+    var safeAreaInsetsBottom: CGFloat {
+        return view.safeAreaInsets.bottom
+    }
+    var stackViewMaxExpandedHeight: CGFloat {
+        return view.frame.height - 160
+    }
+    var stackViewMaxMapInteractedHeight: CGFloat {
+        let ratio = min(expandedRatio, 1.0)
+        return max((view.frame.height) * ratio, searchBarHeight)
+    }
     
-    open var delegate: MapKitSearchDelegate?
-    
-    open var tintColor: UIColor? {
+    var tintColor: UIColor? {
         didSet {
             guard tintColor != oldValue else {
                 return
@@ -116,7 +82,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             searchBarTextField?.tintColor = tintColor
         }
     }
-    open var markerTintColor: UIColor? {
+    var markerTintColor: UIColor? {
         didSet {
             guard markerTintColor != oldValue else {
                 return
@@ -126,10 +92,8 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    open var searchBarTextField: UITextField? {
-        return searchBar.value(forKey: "searchField") as? UITextField
-    }
-    open var completionEnabled = true {
+    
+    var completionEnabled = true {
         didSet {
             if !completionEnabled {
                 searchCompletionRequest = nil
@@ -138,8 +102,21 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    
-    open var alertSubtitle: String?
+    var isUserMapInteracted = false {
+        didSet {
+            if isUserMapInteracted {
+                userDidMapInteract()
+            }
+        }
+    }
+    var isExpanded = false
+    var isDragged = false {
+        didSet {
+            if isDragged {
+                searchBar.resignFirstResponder() // On drag, dismiss Keyboard
+            }
+        }
+    }
     
     convenience  init(delegate: MapKitSearchDelegate?) {
         self.init(nibName: "TempViewController", bundle: Bundle(for: TempViewController.self))
@@ -154,49 +131,16 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     override  func viewDidLoad() {
         super.viewDidLoad()
         displayMapView()
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(mapView(isPan:)))
-        pan.delegate = self
-        mapView.addGestureRecognizer(pan)
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(mapView(isPinch:)))
-        pinch.delegate = self
-        mapView.addGestureRecognizer(pinch)
-        let onTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gestureRecognizer:)))
-        mapView.addGestureRecognizer(onTapGesture)
         tableSearchView()
         addNotificationCenter()
-        
+        tapGestureHandler()
         // Invoke didSet of respective properties.
         self.tintColor = { tintColor }()
         self.markerTintColor = { markerTintColor }()
-        
-        //        if let userLocationRequest = userLocationRequest {
-        //            locationManagerRequestLocation(withPermission: userLocationRequest)
-        //        }
         determineCurrentLocation()
         if let searchBarTextField = searchBarTextField {
             searchBarTextField.font = UIFont.systemFont(ofSize: 15)
         }
-    }
-    
-    @objc func handleLongGesture(gestureRecognizer: UITapGestureRecognizer) {
-        let touchLocation = gestureRecognizer.location(in: mapView)
-        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
-        let myPin = MKPointAnnotation()
-        myPin.coordinate = locationCoordinate
-        myPin.title = "other location"
-        myPin.subtitle = "gesture method"
-        mapView.addAnnotation(myPin)
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        let touchLocation = gestureRecognizer.location(in: mapView)
-        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
-        let myPin = MKPointAnnotation()
-        myPin.coordinate = locationCoordinate
-        myPin.title = "other location"
-        myPin.subtitle = "gesture method"
-        mapView.addAnnotation(myPin)
-        return false
     }
     
     func displayMapView() {
@@ -205,7 +149,6 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         nearMeParent.addSubview(nearMe!)
         compass = MKCompassButton(mapView: mapView)
         compassParent.addSubview(compass!)
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(mapView(isTap:))))
         mapView.delegate = self
     }
     
@@ -228,52 +171,20 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @IBAction func closeDidTap() {
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        } else {
-            dismiss(animated: true)
-        }
-    }
-    
-    func determineCurrentLocation() {
-        LocationManager.shared.getLocation { [self] (location:CLLocation?, error:NSError?) in
-            if let error = error {
-                print("Get current location error ----- ", error.localizedDescription)
-                return
-            }
-            guard let location = location else {
-                return
-            }
-            print("get current location latitude ------- ", location.coordinate.latitude, "and longtitude ------ ", location.coordinate.longitude)
-            //Setting Region
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            mapView.setRegion(region, animated: true)
-            addPin(location: location.coordinate)
-        }
-    }
-    
-    func addPin(location: CLLocationCoordinate2D) {
-        let pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.latitude, location.longitude)
-        let objectAnnotation = MKPointAnnotation()
-        objectAnnotation.coordinate = pinLocation
-        objectAnnotation.title = "Current Location"
-        self.mapView.addAnnotation(objectAnnotation)
-    }
-    
-    
-    
-    override  var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
-    // Recognize added Gesture Recognizer with existing MapView Gesture Recognizers.
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    func tapGestureHandler() {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(mapView(isPan:)))
+        pan.delegate = self
+        mapView.addGestureRecognizer(pan)
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(mapView(isPinch:)))
+        pinch.delegate = self
+        mapView.addGestureRecognizer(pinch)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(mapView(isTap:)))
+//        tap.delegate = self
+        mapView.addGestureRecognizer(tap)
     }
     
     // MARK: - Map Gestures
+    
     @objc private func mapView(isPan gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
@@ -321,10 +232,84 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         let coordinate = mapView.convert(gesture.location(in: mapView), toCoordinateFrom: mapView)
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let myPin = MKPointAnnotation()
+        myPin.coordinate = coordinate
+        myPin.title = "other location"
+        myPin.subtitle = "gesture method"
+        mapView.addAnnotation(myPin)
         geocodeRequestInFuture(withLocation: location)
     }
     
-    private func userDidMapInteract() {
+    @IBAction func closeDidTap() {
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
+    }
+    
+    func determineCurrentLocation() {
+        LocationManager.shared.getLocation { [self] (location:CLLocation?, error:NSError?) in
+            if let error = error {
+                print("Get current location error ----- ", error.localizedDescription)
+                return
+            }
+            guard let location = location else {
+                return
+            }
+            print("get current location latitude ------- ", location.coordinate.latitude, "and longtitude ------ ", location.coordinate.longitude)
+            //Setting Region
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            mapView.setRegion(region, animated: true)
+            addPin(location: location.coordinate)
+        }
+    }
+    
+    func addPin(location: CLLocationCoordinate2D) {
+        let pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+        let objectAnnotation = MKPointAnnotation()
+        objectAnnotation.coordinate = pinLocation
+        objectAnnotation.title = "Current Location"
+        self.mapView.addAnnotation(objectAnnotation)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard !isUserMapInteracted else {
+            geocodeRequestCancel()
+            return true
+        }
+        // If typing or tableView scrolled, only resize bottom sheet.
+        guard !searchBar.isFirstResponder && tableView.contentOffset.y == 0 else {
+            geocodeRequestCancel()
+            isUserMapInteracted = true
+            isUserMapInteracted = false
+            return true
+        }
+        
+        let touchLocation = gestureRecognizer.location(in: mapView)
+        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+        let myPin = MKPointAnnotation()
+        myPin.coordinate = locationCoordinate
+        myPin.title = "other location"
+        myPin.subtitle = "gesture method"
+        mapView.addAnnotation(myPin)
+        // If typing or tableView scrolled, only resize bottom sheet.
+        let location = CLLocation(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+        geocodeRequestInFuture(withLocation: location)
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // Recognize added Gesture Recognizer with existing MapView Gesture Recognizers.
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func userDidMapInteract() {
         tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         searchBar.resignFirstResponder()
         if isExpanded, stackViewHeight.constant > stackViewMaxMapInteractedHeight {
@@ -333,7 +318,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Geocode
-    private func geocodeRequestInFuture(withLocation location: CLLocation, timeInterval: Double = 1.5, repeats: Bool = false) {
+    func geocodeRequestInFuture(withLocation location: CLLocation, timeInterval: Double = 1.5, repeats: Bool = false) {
         geocodeRequestCancel()
         geocodeRequestFuture = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: repeats) { [weak self] _ in
             guard let self = self, !self.isUserMapInteracted else {
@@ -355,12 +340,12 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         delegate?.mapKitSearch(self, userSelectedGeocodeItem: mapItem)
     }
     
-    private func geocodeRequestCancel() {
+    func geocodeRequestCancel() {
         geocodeRequestFuture?.invalidate()
     }
     
     // MARK: - Bottom Sheet Gestures
-    @objc private func searchBar(isPan gesture: UIPanGestureRecognizer) {
+    @objc func searchBar(isPan gesture: UIPanGestureRecognizer) {
         guard tableView.numberOfRows(inSection: 0) > 0 else {
             return
         }
@@ -465,8 +450,8 @@ extension TempViewController: MKMapViewDelegate {
         return view
     }
     
-    //Locates the PlaceAnnotation from an item on the map
-    private func findPlaceAnnotation(from mapItem: MKMapItem) -> PlaceAnnotation? {
+    // Locates the PlaceAnnotation from an item on the map
+    func findPlaceAnnotation(from mapItem: MKMapItem) -> PlaceAnnotation? {
         for annotation in mapView.annotations {
             if let placeAnnotation = annotation as? PlaceAnnotation {
                 if placeAnnotation.mapItem == mapItem {
@@ -485,13 +470,10 @@ extension TempViewController: MKMapViewDelegate {
         }
     }
     
-    
-    private func centerAndZoomMapOnLocation(_ location: CLLocationCoordinate2D) {
-        
+    func centerAndZoomMapOnLocation(_ location: CLLocationCoordinate2D) {
         let coordinateRegion = MKCoordinateRegion(center: location,
                                                   latitudinalMeters: 1000,
                                                   longitudinalMeters: 1000)
-        
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -502,22 +484,6 @@ extension TempViewController: MKMapViewDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // MARK: - Search Delegate
@@ -543,10 +509,7 @@ extension TempViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegat
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchCompletionRequest?.cancel()
         searchRequestFuture?.invalidate()
-        // User interactions can dismiss keyboard, we prevent another search.
-        if !isUserInteracted {
-            searchRequestStart(dismissKeyboard: true)
-        }
+        searchRequestStart(dismissKeyboard: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -616,24 +579,6 @@ extension TempViewController: UITableViewDelegate {
         }
     }
 }
-
-
-
-
-// MARK: - MKAnnotation
-class PlaceAnnotation: NSObject, MKAnnotation {
-    let mapItem: MKMapItem
-    let coordinate: CLLocationCoordinate2D
-    let title, subtitle: String?
-    
-    init(_ mapItem: MKMapItem) {
-        self.mapItem = mapItem
-        coordinate = mapItem.placemark.coordinate
-        title = mapItem.name
-        subtitle = nil
-    }
-}
-
 
 extension TempViewController {
     // MARK: - Search Completions
