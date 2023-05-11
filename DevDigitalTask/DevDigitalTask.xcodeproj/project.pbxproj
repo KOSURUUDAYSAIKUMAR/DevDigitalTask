@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3524431E2A0BEAFA00EBC9E6 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3524431D2A0BEAFA00EBC9E6 /* TempViewController.swift */; };
+		352443212A0BF08200EBC9E6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352443202A0BF08200EBC9E6 /* LocationManager.swift */; };
 		352800ED2A0BA82800D51F70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352800EC2A0BA82800D51F70 /* AppDelegate.swift */; };
 		352800EF2A0BA82800D51F70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352800EE2A0BA82800D51F70 /* SceneDelegate.swift */; };
 		352800F12A0BA82800D51F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352800F02A0BA82800D51F70 /* ViewController.swift */; };
@@ -17,6 +19,22 @@
 		352801072A0BA82A00D51F70 /* DevDigitalTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801062A0BA82A00D51F70 /* DevDigitalTaskTests.swift */; };
 		352801112A0BA82A00D51F70 /* DevDigitalTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801102A0BA82A00D51F70 /* DevDigitalTaskUITests.swift */; };
 		352801132A0BA82A00D51F70 /* DevDigitalTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801122A0BA82A00D51F70 /* DevDigitalTaskUITestsLaunchTests.swift */; };
+		352801262A0BAB7B00D51F70 /* MapItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352801202A0BAB7B00D51F70 /* MapItemTableViewCell.xib */; };
+		352801272A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801212A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift */; };
+		352801282A0BAB7B00D51F70 /* MapTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801222A0BAB7B00D51F70 /* MapTabsView.swift */; };
+		352801292A0BAB7B00D51F70 /* MapItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801232A0BAB7B00D51F70 /* MapItemTableViewCell.swift */; };
+		3528012A2A0BAB7B00D51F70 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352801242A0BAB7B00D51F70 /* BottomSheetView.swift */; };
+		3528012B2A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352801252A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib */; };
+		352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012D2A0BAB8700D51F70 /* CLPlacemark.swift */; };
+		352801312A0BAB8700D51F70 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012E2A0BAB8700D51F70 /* MKMapView.swift */; };
+		352801322A0BAB8700D51F70 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012F2A0BAB8700D51F70 /* CLLocationCoordinate2D.swift */; };
+		3563DA1E2A0C934B006B0C7E /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */; };
+		3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */; };
+		3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */; };
+		3563DA252A0C99EA006B0C7E /* BottomSheetAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA242A0C99EA006B0C7E /* BottomSheetAnnotation.swift */; };
+		35C8A0E52A0CE81C00D92D52 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */; };
+		35C8A0ED2A0CF10300D92D52 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */; };
+		35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3524431D2A0BEAFA00EBC9E6 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
+		352443202A0BF08200EBC9E6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		352800E92A0BA82800D51F70 /* DevDigitalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevDigitalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352800EC2A0BA82800D51F70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352800EE2A0BA82800D51F70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +71,22 @@
 		3528010C2A0BA82A00D51F70 /* DevDigitalTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevDigitalTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		352801102A0BA82A00D51F70 /* DevDigitalTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevDigitalTaskUITests.swift; sourceTree = "<group>"; };
 		352801122A0BA82A00D51F70 /* DevDigitalTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevDigitalTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		352801202A0BAB7B00D51F70 /* MapItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapItemTableViewCell.xib; sourceTree = "<group>"; };
+		352801212A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCompletionTableViewCell.swift; sourceTree = "<group>"; };
+		352801222A0BAB7B00D51F70 /* MapTabsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTabsView.swift; sourceTree = "<group>"; };
+		352801232A0BAB7B00D51F70 /* MapItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemTableViewCell.swift; sourceTree = "<group>"; };
+		352801242A0BAB7B00D51F70 /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		352801252A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCompletionTableViewCell.xib; sourceTree = "<group>"; };
+		3528012D2A0BAB8700D51F70 /* CLPlacemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
+		3528012E2A0BAB8700D51F70 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
+		3528012F2A0BAB8700D51F70 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSearchDelegate.swift; sourceTree = "<group>"; };
+		3563DA242A0C99EA006B0C7E /* BottomSheetAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetAnnotation.swift; sourceTree = "<group>"; };
+		35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +114,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3524431F2A0BF06100EBC9E6 /* Utilis */ = {
+			isa = PBXGroup;
+			children = (
+				352443202A0BF08200EBC9E6 /* LocationManager.swift */,
+				3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */,
+				3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */,
+				3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */,
+			);
+			path = Utilis;
+			sourceTree = "<group>";
+		};
 		352800E02A0BA82800D51F70 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +148,13 @@
 		352800EB2A0BA82800D51F70 /* DevDigitalTask */ = {
 			isa = PBXGroup;
 			children = (
-				352800EC2A0BA82800D51F70 /* AppDelegate.swift */,
+				3563DA232A0C99D5006B0C7E /* Resources */,
+				3524431F2A0BF06100EBC9E6 /* Utilis */,
+				3528012C2A0BAB8700D51F70 /* Extensions */,
+				3528011F2A0BAB7B00D51F70 /* Objects */,
+				35C8A0E32A0CE7E600D92D52 /* ViewControllers */,
 				352800EE2A0BA82800D51F70 /* SceneDelegate.swift */,
+				352800EC2A0BA82800D51F70 /* AppDelegate.swift */,
 				352800F02A0BA82800D51F70 /* ViewController.swift */,
 				352800F22A0BA82800D51F70 /* Main.storyboard */,
 				352800F82A0BA82A00D51F70 /* Assets.xcassets */,
@@ -128,6 +180,48 @@
 				352801122A0BA82A00D51F70 /* DevDigitalTaskUITestsLaunchTests.swift */,
 			);
 			path = DevDigitalTaskUITests;
+			sourceTree = "<group>";
+		};
+		3528011F2A0BAB7B00D51F70 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				352801202A0BAB7B00D51F70 /* MapItemTableViewCell.xib */,
+				352801212A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift */,
+				352801222A0BAB7B00D51F70 /* MapTabsView.swift */,
+				352801232A0BAB7B00D51F70 /* MapItemTableViewCell.swift */,
+				352801242A0BAB7B00D51F70 /* BottomSheetView.swift */,
+				352801252A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		3528012C2A0BAB8700D51F70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3528012D2A0BAB8700D51F70 /* CLPlacemark.swift */,
+				3528012E2A0BAB8700D51F70 /* MKMapView.swift */,
+				3528012F2A0BAB8700D51F70 /* CLLocationCoordinate2D.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3563DA232A0C99D5006B0C7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3563DA242A0C99EA006B0C7E /* BottomSheetAnnotation.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		35C8A0E32A0CE7E600D92D52 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3524431D2A0BEAFA00EBC9E6 /* TempViewController.swift */,
+				35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */,
+				35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */,
+				35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +329,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				352800FC2A0BA82A00D51F70 /* LaunchScreen.storyboard in Resources */,
+				352801262A0BAB7B00D51F70 /* MapItemTableViewCell.xib in Resources */,
 				352800F92A0BA82A00D51F70 /* Assets.xcassets in Resources */,
+				3528012B2A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib in Resources */,
 				352800F42A0BA82800D51F70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,9 +358,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				352800F12A0BA82800D51F70 /* ViewController.swift in Sources */,
+				3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */,
+				3528012A2A0BAB7B00D51F70 /* BottomSheetView.swift in Sources */,
 				352800ED2A0BA82800D51F70 /* AppDelegate.swift in Sources */,
+				352801322A0BAB8700D51F70 /* CLLocationCoordinate2D.swift in Sources */,
 				352800EF2A0BA82800D51F70 /* SceneDelegate.swift in Sources */,
+				352801282A0BAB7B00D51F70 /* MapTabsView.swift in Sources */,
+				352801292A0BAB7B00D51F70 /* MapItemTableViewCell.swift in Sources */,
 				352800F72A0BA82800D51F70 /* DevDigitalTask.xcdatamodeld in Sources */,
+				3524431E2A0BEAFA00EBC9E6 /* TempViewController.swift in Sources */,
+				3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */,
+				352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */,
+				3563DA252A0C99EA006B0C7E /* BottomSheetAnnotation.swift in Sources */,
+				35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */,
+				352801272A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift in Sources */,
+				352801312A0BAB8700D51F70 /* MKMapView.swift in Sources */,
+				352443212A0BF08200EBC9E6 /* LocationManager.swift in Sources */,
+				35C8A0E52A0CE81C00D92D52 /* CityViewController.swift in Sources */,
+				3563DA1E2A0C934B006B0C7E /* CustomAnnotation.swift in Sources */,
+				35C8A0ED2A0CF10300D92D52 /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,11 +556,16 @@
 				DEVELOPMENT_TEAM = F65446F4X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DevDigitalTask/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to enable map features.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +573,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaiors.DevDigitalTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,11 +592,16 @@
 				DEVELOPMENT_TEAM = F65446F4X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DevDigitalTask/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app requires your location to enable map features.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to enable map features.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,6 +609,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaiors.DevDigitalTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
