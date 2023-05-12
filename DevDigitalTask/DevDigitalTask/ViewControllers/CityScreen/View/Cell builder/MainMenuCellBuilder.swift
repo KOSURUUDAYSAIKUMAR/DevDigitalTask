@@ -1,9 +1,3 @@
-//
-//  MainMenuCellBuilder.swift
-//  Weather
-//
-//  Created by Alexander Rubtsov on 12.09.2021.
-//
 
 import UIKit
 

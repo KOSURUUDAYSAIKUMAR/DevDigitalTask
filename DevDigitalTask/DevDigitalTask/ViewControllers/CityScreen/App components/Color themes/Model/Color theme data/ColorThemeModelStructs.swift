@@ -1,9 +1,4 @@
-//
-//  ColorThemeModelStructs.swift
-//  Weather
-//
-//  Created by Alexander Rubtsov on 20.10.2021.
-//
+
 
 import UIKit
 

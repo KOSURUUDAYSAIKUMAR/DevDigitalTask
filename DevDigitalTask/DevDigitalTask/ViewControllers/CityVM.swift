@@ -15,7 +15,6 @@ protocol CityVCDelegate: AnyObject {
 }
 
 class CityVM: NSObject {
-
     weak var viewController: CityVCDelegate?
 }
 

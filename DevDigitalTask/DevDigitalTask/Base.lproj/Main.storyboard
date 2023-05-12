@@ -9,23 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--City-->
-        <scene sceneID="cRe-Xk-tf9">
-            <objects>
-                <viewController id="jDv-wj-xML" customClass="CityViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Az1-P9-fKb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="99q-8V-6V5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="City" image="citytab" id="8Lo-tJ-kvQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ehn-gs-kzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2463" y="749"/>
-        </scene>
-        <!--City-->
+        <!--City List View Controller-->
         <scene sceneID="Agn-6k-cuc">
             <objects>
                 <viewController storyboardIdentifier="CityListViewController" id="u79-Vy-nYM" customClass="CityListViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="za5-OY-d4D">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-dn-cJN" userLabel="Header">
-                                        <rect key="frame" x="8" y="0.0" width="385" height="49.666666666666664"/>
+                                        <rect key="frame" x="8" y="0.0" width="385" height="46.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJa-mH-QMd">
-                                                <rect key="frame" x="165.66666666666666" y="6.3333333333333286" width="53.666666666666657" height="37"/>
+                                                <rect key="frame" x="165.66666666666666" y="4.6666666666666714" width="53.666666666666657" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -53,10 +37,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-0g-0tc" userLabel="List">
-                                        <rect key="frame" x="0.0" y="49.666666666666686" width="393" height="660.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="46.666666666666686" width="393" height="619.33333333333326"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vsM-LJ-qja">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="660.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="619.33333333333337"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="u79-Vy-nYM" id="K2V-7J-bdW"/>
@@ -95,16 +79,14 @@
                             <constraint firstItem="za5-OY-d4D" firstAttribute="top" secondItem="pLW-bx-Qim" secondAttribute="top" id="sw9-QU-Xud"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="City" image="citytab" id="i0B-o3-0Zd">
-                        <color key="badgeColor" red="0.62352941179999999" green="0.85490196080000003" blue="0.94901960780000005" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="xWJ-UF-qdS"/>
                     <connections>
                         <outlet property="cityTableView" destination="vsM-LJ-qja" id="W98-fZ-cl9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFB-Hi-IS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3223.6641221374043" y="748.59154929577471"/>
+            <point key="canvasLocation" x="4150.3816793893129" y="748.59154929577471"/>
         </scene>
         <!--Help-->
         <scene sceneID="MCP-Rz-RpI">
@@ -120,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd9-aC-wUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288" y="725"/>
+            <point key="canvasLocation" x="5214.5038167938928" y="724.64788732394368"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -151,7 +133,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P22-2y-Hnh">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="80.666666666666671"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O14-Be-RZA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="80.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="81"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
                                                 <blurEffect style="light"/>
@@ -348,13 +330,34 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Kpv-PH-41p"/>
-                        <segue destination="u79-Vy-nYM" kind="relationship" relationship="viewControllers" id="M3k-Ue-VTh"/>
+                        <segue destination="7BD-Nl-0cy" kind="relationship" relationship="viewControllers" id="M3k-Ue-VTh"/>
                         <segue destination="gq5-hb-egg" kind="relationship" relationship="viewControllers" id="0m6-tx-Nxs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6B-IS-LoJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3223.6641221374043" y="-2.1126760563380285"/>
+        </scene>
+        <!--City-->
+        <scene sceneID="IYl-FO-vDZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7BD-Nl-0cy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="City" image="citytab" id="i0B-o3-0Zd">
+                        <color key="badgeColor" red="0.62352941179999999" green="0.85490196080000003" blue="0.94901960780000005" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ClZ-2O-zzZ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u79-Vy-nYM" kind="relationship" relationship="rootViewController" id="OXW-I9-AoC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZc-p3-zkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3223.6641221374043" y="748.59154929577471"/>
         </scene>
     </scenes>
     <resources>

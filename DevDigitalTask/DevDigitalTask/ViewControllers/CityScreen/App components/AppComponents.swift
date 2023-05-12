@@ -1,9 +1,3 @@
-//
-//  AppComponents.swift
-//  Weather
-//
-//  Created by Alexander Rubtsov on 04.10.2021.
-//
 
 import Foundation
 

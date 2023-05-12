@@ -10,24 +10,8 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    private let storyboardName = "Main"
-    private let tabbarControllerIdentifier = "TabBarViewController"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
-//
-//        let rootViewController = TabBarViewController()
-//
-//        let navigationController = UINavigationController(rootViewController: rootViewController)
-//        navigationController.navigationBar.barStyle = .black
-//
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = navigationController
-//        window.makeKeyAndVisible()
-//
-//        self.window = window
         return true
     }
 

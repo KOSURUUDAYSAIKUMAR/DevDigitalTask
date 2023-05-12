@@ -15,13 +15,7 @@ class CityListViewController: UIViewController {
     @IBOutlet weak var cityTableView: UITableView!
     
     let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
-    
-    private lazy var cityVM: CityVM = {
-        let city = CityVM()
-        city.viewController = self
-        return city
-    }()
-    
+
     private var savedCities = [SavedCity]()
     var dataStorage: DataStorageProtocol?
     var displayWeather: [WeatherModel?] = []
@@ -45,9 +39,8 @@ class CityListViewController: UIViewController {
         cityTableView.addSubview(refreshControl)
        
         weatherManager.delegate = self
-   //     cityTableView.reloadData()
         fetchWeatherData()
-        cityTableView.reloadData()
+//        cityTableView.reloadData()
         // Do any additional setup after loading the view.
     }
     
@@ -110,16 +103,10 @@ class CityListViewController: UIViewController {
             }
             return
         }
-//        let destinationVC = CityDetailViewController()
-//        destinationVC.localWeatherData = strongWeatherData
-//        destinationVC.colorThemeComponent = appComponents
-//        navigationController?.pushViewController(destinationVC, animated: true)
-    }
-}
-
-extension CityListViewController : CityVCDelegate {
-    func didSelectRow() {
-        showDetailViewVC()
+        let destinationVC = CityDetailViewController(colorThemeComponent: appComponents.colorTheme)
+        destinationVC.localWeatherData = strongWeatherData
+        destinationVC.colorThemeComponent = appComponents.colorTheme
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
 

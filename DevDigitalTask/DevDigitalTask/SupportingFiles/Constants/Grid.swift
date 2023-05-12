@@ -1,9 +1,4 @@
-//
-//  Grid.swift
-//  Weather
-//
-//  Created by Alexander Rubtsov on 08.12.2021.
-//
+
 
 import UIKit
 

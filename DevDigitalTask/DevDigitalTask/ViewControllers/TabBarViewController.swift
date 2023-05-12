@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         tab.tabBarItem = tabBar
         
         // Tab 2
-        let cityTab = CityViewController(nibName: "Main", bundle: nil)
+        let cityTab = CityListViewController(nibName: "Main", bundle: nil)
         let cityTabBar = UITabBarItem(title: "City", image: UIImage(named: "citytab"), tag: 1)
         cityTab.tabBarItem = cityTabBar
         
