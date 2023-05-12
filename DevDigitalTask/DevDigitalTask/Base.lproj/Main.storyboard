@@ -10,9 +10,25 @@
     </dependencies>
     <scenes>
         <!--City-->
+        <scene sceneID="cRe-Xk-tf9">
+            <objects>
+                <viewController id="jDv-wj-xML" customClass="CityViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Az1-P9-fKb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="99q-8V-6V5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="City" image="citytab" id="8Lo-tJ-kvQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehn-gs-kzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2463" y="749"/>
+        </scene>
+        <!--City-->
         <scene sceneID="Agn-6k-cuc">
             <objects>
-                <viewController id="u79-Vy-nYM" customClass="CityViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityListViewController" id="u79-Vy-nYM" customClass="CityListViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kmw-Y1-BEl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,21 +53,15 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-0g-0tc" userLabel="List">
-                                        <rect key="frame" x="24" y="49.666666666666686" width="345" height="660.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="49.666666666666686" width="393" height="660.33333333333326"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vsM-LJ-qja">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="660.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="660.33333333333337"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="115" id="gii-AA-DmK">
-                                                        <rect key="frame" x="0.0" y="50" width="345" height="115"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gii-AA-DmK" id="HiZ-ig-thA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="115"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="u79-Vy-nYM" id="K2V-7J-bdW"/>
+                                                    <outlet property="delegate" destination="u79-Vy-nYM" id="0Of-rj-Psj"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,8 +75,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6cN-0g-0tc" secondAttribute="trailing" constant="24" id="0O6-bO-C8i"/>
-                                    <constraint firstItem="6cN-0g-0tc" firstAttribute="leading" secondItem="za5-OY-d4D" secondAttribute="leading" constant="24" id="BPS-I8-PZP"/>
+                                    <constraint firstAttribute="trailing" secondItem="6cN-0g-0tc" secondAttribute="trailing" id="0O6-bO-C8i"/>
+                                    <constraint firstItem="6cN-0g-0tc" firstAttribute="leading" secondItem="za5-OY-d4D" secondAttribute="leading" id="BPS-I8-PZP"/>
                                     <constraint firstItem="7Jo-dn-cJN" firstAttribute="height" secondItem="za5-OY-d4D" secondAttribute="height" multiplier="0.07" id="Y1o-Xt-pat"/>
                                     <constraint firstItem="7Jo-dn-cJN" firstAttribute="top" secondItem="za5-OY-d4D" secondAttribute="top" id="aey-ZB-yfj"/>
                                     <constraint firstAttribute="trailing" secondItem="7Jo-dn-cJN" secondAttribute="trailing" id="bdL-PD-EXY"/>
@@ -88,6 +98,9 @@
                     <tabBarItem key="tabBarItem" title="City" image="citytab" id="i0B-o3-0Zd">
                         <color key="badgeColor" red="0.62352941179999999" green="0.85490196080000003" blue="0.94901960780000005" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="cityTableView" destination="vsM-LJ-qja" id="W98-fZ-cl9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFB-Hi-IS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +125,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TempViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TempViewController" id="BYZ-38-t0r" customClass="TempViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +151,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P22-2y-Hnh">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="80.666666666666671"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O14-Be-RZA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="81"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="80.666666666666671"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
                                                 <blurEffect style="light"/>
@@ -326,7 +339,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lAZ-02-57Z">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="W0t-Y1-Ftr" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W0t-Y1-Ftr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BsE-no-JHd">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -335,7 +348,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Kpv-PH-41p"/>
-                        <segue destination="u79-Vy-nYM" kind="relationship" relationship="viewControllers" id="dp4-mH-kYH"/>
+                        <segue destination="u79-Vy-nYM" kind="relationship" relationship="viewControllers" id="M3k-Ue-VTh"/>
                         <segue destination="gq5-hb-egg" kind="relationship" relationship="viewControllers" id="0m6-tx-Nxs"/>
                     </connections>
                 </tabBarController>

@@ -8,27 +8,51 @@
 import UIKit
 import CoreData
 
-class CityViewController: UIViewController{
-
+class CityViewController: UIViewController {
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
+//        navigateList()
+//        performSegue(withIdentifier: "list", sender: nil)
         
-        let rootViewController = MainMenuViewController(appComponents: appComponents)
-        rootViewController.dataStorage = WeatherCoreDataManager(managedContext: persistentContainer.newBackgroundContext())
+//        let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
+//        let rootViewController = CityListViewController(appComponents: appComponents)
+//        rootViewController.dataStorage = WeatherCoreDataManager(managedContext: persistentContainer.newBackgroundContext())
+//        present(rootViewController, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = CityListViewController()
+//        rootViewController.dataStorage = WeatherCoreDataManager(managedContext: persistentContainer.newBackgroundContext())
         present(rootViewController, animated: true)
+        
         // Do any additional setup after loading the view.
     }
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: Dev.CoreData.modelName)
-        container.loadPersistentStores(completionHandler: { _, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+    func navigateList() {
+       let storyboard = UIStoryboard(name: "Main", bundle: nil)
+       guard let viewController = storyboard.instantiateViewController(
+            identifier: "CityListViewController",
+            creator: { coder in
+                 CityListViewController()
             }
-        })
-        return container
-    }()
+       ) as? CityListViewController else {
+           return
+       }
+        //Then you do what you want with the view controller.
+        present(viewController, animated: true)
+        
+        
+//        let rootViewController = CityListViewController(appComponents: appComponents)
+//        rootViewController.dataStorage = WeatherCoreDataManager(managedContext: persistentContainer.newBackgroundContext())
+//        let navigationController = UINavigationController(rootViewController: rootViewController)
+//        navigationController.navigationBar.barStyle = .black
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//       window.rootViewController = navigationController
+//       window.makeKeyAndVisible()
+//       self.window = window
+    }
+    
+ 
     /*
     // MARK: - Navigation
 

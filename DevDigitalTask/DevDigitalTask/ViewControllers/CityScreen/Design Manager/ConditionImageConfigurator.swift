@@ -1,4 +1,9 @@
-
+//
+//  ConditionImageConfigurator.swift
+//  Weather
+//
+//  Created by Alexander Rubtsov on 22.09.2021.
+//
 
 import UIKit
 

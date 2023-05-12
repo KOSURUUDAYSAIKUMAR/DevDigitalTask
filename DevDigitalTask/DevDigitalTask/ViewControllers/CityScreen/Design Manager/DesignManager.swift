@@ -1,4 +1,9 @@
-
+//
+//  BackgroundDesignManager.swift
+//  Weather
+//
+//  Created by Александр on 16.05.2021.
+//
 
 import UIKit
 

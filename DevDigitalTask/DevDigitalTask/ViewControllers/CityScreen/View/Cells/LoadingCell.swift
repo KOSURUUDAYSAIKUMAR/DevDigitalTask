@@ -130,15 +130,13 @@ class LoadingCell: UITableViewCell {
     
     // MARK: - Functions
     
-    func setupColorTheme(colorTheme: ColorThemeProtocol) {
-        let colorThemeCell = colorTheme.colorTheme.mainMenu.cells
-        
+    func setupColorTheme(colorTheme: ColorThemeModel) {
+        let colorThemeCell = colorTheme.mainMenu.cells
         weatherBackgroundView.backgroundColor = colorThemeCell.defaultBackground
         cityLoadView.backgroundColor = colorThemeCell.defaultLoadingViewsColor
         timeLoadView.backgroundColor = colorThemeCell.defaultLoadingViewsColor
         degreeLoadView.backgroundColor = colorThemeCell.defaultLoadingViewsColor
         activityIndicator.color = colorThemeCell.activityViewColor
-        
     }
 
     // MARK: - Private functions

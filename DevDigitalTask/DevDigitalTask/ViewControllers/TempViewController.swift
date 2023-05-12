@@ -151,8 +151,8 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Setup
     override  func viewDidLoad() {
         super.viewDidLoad()
-        
-        displayMapView()
+        mapView.delegate = self
+     //   displayMapView()
         tableSearchView()
         addNotificationCenter()
         tapGestureHandler()
@@ -168,10 +168,9 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     func displayMapView() {
         nearMe = MKUserTrackingButton(mapView: mapView)
         nearMe!.frame.size = CGSize(width: 24, height: 24)
-        nearMeParent.addSubview(nearMe!)
+        nearMeParent.addSubview(nearMe ?? MKUserTrackingButton())
         compass = MKCompassButton(mapView: mapView)
         compassParent.addSubview(compass!)
-        mapView.delegate = self
     }
     
     func tableSearchView() {

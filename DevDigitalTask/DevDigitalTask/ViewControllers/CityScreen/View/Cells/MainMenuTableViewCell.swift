@@ -98,7 +98,7 @@ class MainMenuTableViewCell: UITableViewCell {
         selectionStyle = .none
 
         // Setting up cell appearance
-        DesignManager.setBackgroundStandartShape(layer: weatherBackgroundView.layer)
+   //     DesignManager.setBackgroundStandartShape(layer: weatherBackgroundView.layer)
 
         // Making cells shadow be able to spill over other cells
         layer.masksToBounds = false
@@ -107,7 +107,7 @@ class MainMenuTableViewCell: UITableViewCell {
         // Setting up gradient layer
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.colors = DesignManager.getStandartGradientColor(withStyle: .blank)
+ //       gradient.colors = DesignManager.getStandartGradientColor(withStyle: .blank)
 
         weatherBackgroundView.layer.insertSublayer(gradient, at: 0) // Adding gradient at the bottom
 
@@ -134,7 +134,7 @@ class MainMenuTableViewCell: UITableViewCell {
         super.layoutIfNeeded()
         // Configuring gradient frame when views calculating
         gradient.frame = weatherBackgroundView.bounds
-        DesignManager.setBackgroundStandartShape(layer: gradient)
+//        DesignManager.setBackgroundStandartShape(layer: gradient)
     }
 
     // MARK: - Private functions
