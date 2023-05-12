@@ -7,6 +7,21 @@
 
 import MapKit
 import UIKit
+import CoreData
+
+protocol AddCityProtocol {
+    func didAddNewCity()
+    func didFailAddingNewCityWithError(error: Error?)
+}
+
+protocol AddCityViewDelegate: AnyObject {
+    var searchCompleter: MKLocalSearchCompleter { get }
+    func dismissView()
+    func didChoseCity(title: String, subtitle: String)
+    func tryToAddCurrentLocation()
+}
+
+protocol AddCityDelegate: AddCityProtocol, DataStorageBasicProtocol, AnyObject {}
 
 class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -118,7 +133,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    convenience  init(delegate: MapKitSearchDelegate?) {
+    convenience init(delegate: MapKitSearchDelegate?) {
         self.init(nibName: "TempViewController", bundle: Bundle(for: TempViewController.self))
         self.delegate = delegate
     }
@@ -127,9 +142,16 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - CoreData
+    var dataStorage: DataStorageProtocol?
+    weak var cityDelegate: AddCityDelegate?
+    weak var cityViewdelegate: AddCityViewDelegate?
+    private var savedCities = [SavedCity]()
+    
     // MARK: - Setup
     override  func viewDidLoad() {
         super.viewDidLoad()
+        
         displayMapView()
         tableSearchView()
         addNotificationCenter()
@@ -317,6 +339,32 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    // MARK: - Core Data stack
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: Dev.CoreData.modelName)
+        container.loadPersistentStores(completionHandler: { _, error in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+
+    // MARK: - Core Data Saving support
+
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+            try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
     // MARK: - Geocode
     func geocodeRequestInFuture(withLocation location: CLLocation, timeInterval: Double = 1.5, repeats: Bool = false) {
         geocodeRequestCancel()
@@ -327,6 +375,13 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             LocationManager.shared.getReverseGeoCodedLocation(location: location, completionHandler: { location, placemark, error in
                 let placeMark = [placemark!]
                 self.geocodeRequestDidComplete(withPlacemarks: placeMark, error: error)
+                WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
+//                self.cityDelegate?.addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
+                guard let savedCities = self.dataStorage?.getSavedItems else {
+                    return
+                }
+
+                self.savedCities = savedCities
             })
         }
     }
@@ -559,6 +614,9 @@ extension TempViewController: UITableViewDelegate {
                 return
             }
             searchBar.text = searchCompletions[indexPath.row].title
+            let selectedCity = searchCompletions[indexPath.row]
+//            cityViewdelegate?.didChoseCity(title: selectedCity.title,
+//                                   subtitle: selectedCity.subtitle)
             searchBarSearchButtonClicked(searchBar)
             break
         case .mapItem:
@@ -738,3 +796,31 @@ extension TempViewController {
         }
     }
 }
+
+
+extension TempViewController: AddCityDelegate {
+    func didAddNewCity() {
+    }
+    
+    func didFailAddingNewCityWithError(error: Error?) {
+        
+    }
+    
+    func deleteItem(at index: Int) {
+        dataStorage?.deleteItem(at: index)
+    }
+    
+    func rearrangeItems(at firstIndex: Int, to secondIndex: Int) {
+        dataStorage?.rearrangeItems(at: firstIndex, to: secondIndex)
+    }
+    
+    var getSavedItems: [SavedCity]? {
+        return dataStorage?.getSavedItems
+    }
+
+    func addNewItem(_ city: String, lat: Double, long: Double) {
+        dataStorage?.addNewItem(city, lat: lat, long: long)
+    }
+}
+
+

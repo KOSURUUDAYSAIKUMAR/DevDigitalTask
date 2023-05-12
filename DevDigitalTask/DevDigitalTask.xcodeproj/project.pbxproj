@@ -32,9 +32,78 @@
 		3534F4D12A0D407F00148B00 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4CF2A0D407F00148B00 /* City+CoreDataProperties.swift */; };
 		3534F4D42A0D411C00148B00 /* WeatherCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4D32A0D411C00148B00 /* WeatherCoreDataManager.swift */; };
 		3534F4D72A0D44ED00148B00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4D62A0D44ED00148B00 /* Constants.swift */; };
+		3534F4DB2A0D5BEE00148B00 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4D92A0D5BEE00148B00 /* CityTableViewCell.swift */; };
+		3534F4DC2A0D5BEE00148B00 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3534F4DA2A0D5BEE00148B00 /* CityTableViewCell.xib */; };
+		354BE93E2A0DD36900E12CE7 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9292A0DD36800E12CE7 /* CityDetailViewController.swift */; };
+		354BE93F2A0DD36900E12CE7 /* DegreeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE92C2A0DD36800E12CE7 /* DegreeLabel.swift */; };
+		354BE9402A0DD36900E12CE7 /* WeeklyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE92F2A0DD36800E12CE7 /* WeeklyForecastCell.swift */; };
+		354BE9412A0DD36900E12CE7 /* WeeklyForecastTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9302A0DD36800E12CE7 /* WeeklyForecastTableView.swift */; };
+		354BE9422A0DD36900E12CE7 /* WeatherQualityItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9322A0DD36800E12CE7 /* WeatherQualityItemView.swift */; };
+		354BE9432A0DD36900E12CE7 /* WeatherQualityInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9332A0DD36800E12CE7 /* WeatherQualityInfoView.swift */; };
+		354BE9442A0DD36900E12CE7 /* CityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9342A0DD36800E12CE7 /* CityDetailView.swift */; };
+		354BE9452A0DD36900E12CE7 /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9362A0DD36800E12CE7 /* HourlyCollectionViewCell.swift */; };
+		354BE9462A0DD36900E12CE7 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9372A0DD36800E12CE7 /* HourlyForecastView.swift */; };
+		354BE9472A0DD36900E12CE7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9392A0DD36900E12CE7 /* NetworkManager.swift */; };
+		354BE9482A0DD36900E12CE7 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE93B2A0DD36900E12CE7 /* WeatherModel.swift */; };
+		354BE9492A0DD36900E12CE7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE93D2A0DD36900E12CE7 /* WeatherData.swift */; };
+		354BE94C2A0DD38800E12CE7 /* FadeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE94B2A0DD38800E12CE7 /* FadeTransitionAnimator.swift */; };
+		354BE9602A0DD3D100E12CE7 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9512A0DD3D000E12CE7 /* AddCityViewController.swift */; };
+		354BE9612A0DD3D100E12CE7 /* AddCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9532A0DD3D000E12CE7 /* AddCityView.swift */; };
+		354BE9622A0DD3D100E12CE7 /* MainMenuTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9562A0DD3D000E12CE7 /* MainMenuTableViewDelegate.swift */; };
+		354BE9632A0DD3D100E12CE7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9572A0DD3D000E12CE7 /* MainMenuViewController.swift */; };
+		354BE9642A0DD3D100E12CE7 /* MainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE95A2A0DD3D100E12CE7 /* MainMenuTableViewCell.swift */; };
+		354BE9652A0DD3D100E12CE7 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE95B2A0DD3D100E12CE7 /* LoadingCell.swift */; };
+		354BE9662A0DD3D100E12CE7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE95C2A0DD3D100E12CE7 /* MainMenuView.swift */; };
+		354BE9672A0DD3D100E12CE7 /* MainMenuCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE95E2A0DD3D100E12CE7 /* MainMenuCellBuilder.swift */; };
+		354BE9AD2A0DD42900E12CE7 /* AlertViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9AC2A0DD42900E12CE7 /* AlertViewBuilder.swift */; };
+		354BE9BE2A0DD83300E12CE7 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9BD2A0DD83300E12CE7 /* Grid.swift */; };
+		354BE9C02A0DD8CA00E12CE7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9BF2A0DD8CA00E12CE7 /* UserDefaultsManager.swift */; };
 		3563DA1E2A0C934B006B0C7E /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */; };
 		3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */; };
 		3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */; };
+		3582E6B02A0DDB7500DAF76C /* AppIconManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6A52A0DDB7500DAF76C /* AppIconManger.swift */; };
+		3582E6B12A0DDB7500DAF76C /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6A72A0DDB7500DAF76C /* AppComponents.swift */; };
+		3582E6B22A0DDB7500DAF76C /* ColorThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6AB2A0DDB7500DAF76C /* ColorThemeModel.swift */; };
+		3582E6B32A0DDB7500DAF76C /* ColorThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6AC2A0DDB7500DAF76C /* ColorThemeManager.swift */; };
+		3582E6B42A0DDB7500DAF76C /* ColorThemeModelStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6AE2A0DDB7500DAF76C /* ColorThemeModelStructs.swift */; };
+		3582E6B52A0DDB7500DAF76C /* ColorThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6AF2A0DDB7500DAF76C /* ColorThemeData.swift */; };
+		3582E6E62A0DDB7A00DAF76C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6B92A0DDB7A00DAF76C /* SettingsTableViewController.swift */; };
+		3582E6E72A0DDB7A00DAF76C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6BB2A0DDB7A00DAF76C /* SettingsView.swift */; };
+		3582E6E82A0DDB7A00DAF76C /* StandartSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6BE2A0DDB7A00DAF76C /* StandartSettingsCell.swift */; };
+		3582E6E92A0DDB7A00DAF76C /* UnitsSettingsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6C22A0DDB7A00DAF76C /* UnitsSettingsCellController.swift */; };
+		3582E6EA2A0DDB7A00DAF76C /* UnitsSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6C42A0DDB7A00DAF76C /* UnitsSettingsCell.swift */; };
+		3582E6EB2A0DDB7A00DAF76C /* ColorThemeSettingsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6C72A0DDB7A00DAF76C /* ColorThemeSettingsCellController.swift */; };
+		3582E6EC2A0DDB7A00DAF76C /* ColorThemeSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6C92A0DDB7A00DAF76C /* ColorThemeSettingsCell.swift */; };
+		3582E6ED2A0DDB7A00DAF76C /* EmailMeSupportCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6CD2A0DDB7A00DAF76C /* EmailMeSupportCellController.swift */; };
+		3582E6EE2A0DDB7A00DAF76C /* EmailMeSupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6CF2A0DDB7A00DAF76C /* EmailMeSupportCell.swift */; };
+		3582E6EF2A0DDB7A00DAF76C /* TelegramChatSupportCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6D22A0DDB7A00DAF76C /* TelegramChatSupportCellController.swift */; };
+		3582E6F02A0DDB7A00DAF76C /* TelegramChatSupportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6D42A0DDB7A00DAF76C /* TelegramChatSupportCell.swift */; };
+		3582E6F12A0DDB7A00DAF76C /* AppIconSettingsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6D72A0DDB7A00DAF76C /* AppIconSettingsCellController.swift */; };
+		3582E6F22A0DDB7A00DAF76C /* AppIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6D92A0DDB7A00DAF76C /* AppIconCollectionViewCell.swift */; };
+		3582E6F32A0DDB7A00DAF76C /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6DA2A0DDB7A00DAF76C /* AppIconSettingsCell.swift */; };
+		3582E6F42A0DDB7A00DAF76C /* SettingsCellTappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6DC2A0DDB7A00DAF76C /* SettingsCellTappableProtocol.swift */; };
+		3582E6F52A0DDB7A00DAF76C /* ColorThemeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6DF2A0DDB7A00DAF76C /* ColorThemeSettingsViewController.swift */; };
+		3582E6F62A0DDB7A00DAF76C /* ColorThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6E12A0DDB7A00DAF76C /* ColorThemeSettingsView.swift */; };
+		3582E6F72A0DDB7A00DAF76C /* ThemeColorsBlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6E32A0DDB7A00DAF76C /* ThemeColorsBlocksView.swift */; };
+		3582E6F82A0DDB7A00DAF76C /* ColorThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6E52A0DDB7A00DAF76C /* ColorThemeCell.swift */; };
+		3582E6FD2A0DDD1500DAF76C /* ConditionImageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6FA2A0DDD1500DAF76C /* ConditionImageConfigurator.swift */; };
+		3582E6FE2A0DDD1500DAF76C /* ConditionImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6FB2A0DDD1500DAF76C /* ConditionImageBuilder.swift */; };
+		3582E6FF2A0DDD1500DAF76C /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3582E6FC2A0DDD1500DAF76C /* DesignManager.swift */; };
+		3582E70F2A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7012A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png */; };
+		3582E7102A0DE2ED00DAF76C /* cornerSun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7022A0DE2ED00DAF76C /* cornerSun@2x.png */; };
+		3582E7112A0DE2ED00DAF76C /* moon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7032A0DE2ED00DAF76C /* moon@2x.png */; };
+		3582E7122A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7042A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@2x.png */; };
+		3582E7132A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7052A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@3x.png */; };
+		3582E7142A0DE2ED00DAF76C /* moon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7062A0DE2ED00DAF76C /* moon@3x.png */; };
+		3582E7152A0DE2ED00DAF76C /* whiteSunAppIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7072A0DE2ED00DAF76C /* whiteSunAppIcon@3x.png */; };
+		3582E7162A0DE2ED00DAF76C /* cornerSun@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7082A0DE2ED00DAF76C /* cornerSun@3x.png */; };
+		3582E7172A0DE2ED00DAF76C /* yellowSun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7092A0DE2ED00DAF76C /* yellowSun@2x.png */; };
+		3582E7182A0DE2ED00DAF76C /* yellowSun@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E70A2A0DE2ED00DAF76C /* yellowSun@3x.png */; };
+		3582E7192A0DE2ED00DAF76C /* orangeCloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E70B2A0DE2ED00DAF76C /* orangeCloud@2x.png */; };
+		3582E71A2A0DE2ED00DAF76C /* blueWhiteCloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E70C2A0DE2ED00DAF76C /* blueWhiteCloud@2x.png */; };
+		3582E71B2A0DE2ED00DAF76C /* blueWhiteCloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E70D2A0DE2ED00DAF76C /* blueWhiteCloud@3x.png */; };
+		3582E71C2A0DE2ED00DAF76C /* orangeCloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E70E2A0DE2ED00DAF76C /* orangeCloud@3x.png */; };
+		3582E71E2A0DE2F900DAF76C /* ColorThemes.json in Resources */ = {isa = PBXBuildFile; fileRef = 3582E71D2A0DE2F900DAF76C /* ColorThemes.json */; };
 		35C8A0E52A0CE81C00D92D52 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */; };
 		35C8A0ED2A0CF10300D92D52 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */; };
 		35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */; };
@@ -88,9 +157,78 @@
 		3534F4CF2A0D407F00148B00 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3534F4D32A0D411C00148B00 /* WeatherCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherCoreDataManager.swift; path = DataPersistance/WeatherCoreDataManager.swift; sourceTree = "<group>"; };
 		3534F4D62A0D44ED00148B00 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3534F4D92A0D5BEE00148B00 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		3534F4DA2A0D5BEE00148B00 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
+		354BE9292A0DD36800E12CE7 /* CityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		354BE92C2A0DD36800E12CE7 /* DegreeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DegreeLabel.swift; sourceTree = "<group>"; };
+		354BE92F2A0DD36800E12CE7 /* WeeklyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyForecastCell.swift; sourceTree = "<group>"; };
+		354BE9302A0DD36800E12CE7 /* WeeklyForecastTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyForecastTableView.swift; sourceTree = "<group>"; };
+		354BE9322A0DD36800E12CE7 /* WeatherQualityItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherQualityItemView.swift; sourceTree = "<group>"; };
+		354BE9332A0DD36800E12CE7 /* WeatherQualityInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherQualityInfoView.swift; sourceTree = "<group>"; };
+		354BE9342A0DD36800E12CE7 /* CityDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailView.swift; sourceTree = "<group>"; };
+		354BE9362A0DD36800E12CE7 /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
+		354BE9372A0DD36800E12CE7 /* HourlyForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
+		354BE9392A0DD36900E12CE7 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		354BE93B2A0DD36900E12CE7 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		354BE93D2A0DD36900E12CE7 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		354BE94B2A0DD38800E12CE7 /* FadeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransitionAnimator.swift; sourceTree = "<group>"; };
+		354BE9512A0DD3D000E12CE7 /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		354BE9532A0DD3D000E12CE7 /* AddCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityView.swift; sourceTree = "<group>"; };
+		354BE9562A0DD3D000E12CE7 /* MainMenuTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewDelegate.swift; sourceTree = "<group>"; };
+		354BE9572A0DD3D000E12CE7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		354BE95A2A0DD3D100E12CE7 /* MainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewCell.swift; sourceTree = "<group>"; };
+		354BE95B2A0DD3D100E12CE7 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		354BE95C2A0DD3D100E12CE7 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		354BE95E2A0DD3D100E12CE7 /* MainMenuCellBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuCellBuilder.swift; sourceTree = "<group>"; };
+		354BE9AC2A0DD42900E12CE7 /* AlertViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewBuilder.swift; sourceTree = "<group>"; };
+		354BE9BD2A0DD83300E12CE7 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		354BE9BF2A0DD8CA00E12CE7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSearchDelegate.swift; sourceTree = "<group>"; };
+		3582E6A52A0DDB7500DAF76C /* AppIconManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconManger.swift; sourceTree = "<group>"; };
+		3582E6A72A0DDB7500DAF76C /* AppComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
+		3582E6AB2A0DDB7500DAF76C /* ColorThemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeModel.swift; sourceTree = "<group>"; };
+		3582E6AC2A0DDB7500DAF76C /* ColorThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeManager.swift; sourceTree = "<group>"; };
+		3582E6AE2A0DDB7500DAF76C /* ColorThemeModelStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeModelStructs.swift; sourceTree = "<group>"; };
+		3582E6AF2A0DDB7500DAF76C /* ColorThemeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeData.swift; sourceTree = "<group>"; };
+		3582E6B92A0DDB7A00DAF76C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		3582E6BB2A0DDB7A00DAF76C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3582E6BE2A0DDB7A00DAF76C /* StandartSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandartSettingsCell.swift; sourceTree = "<group>"; };
+		3582E6C22A0DDB7A00DAF76C /* UnitsSettingsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsSettingsCellController.swift; sourceTree = "<group>"; };
+		3582E6C42A0DDB7A00DAF76C /* UnitsSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsSettingsCell.swift; sourceTree = "<group>"; };
+		3582E6C72A0DDB7A00DAF76C /* ColorThemeSettingsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingsCellController.swift; sourceTree = "<group>"; };
+		3582E6C92A0DDB7A00DAF76C /* ColorThemeSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingsCell.swift; sourceTree = "<group>"; };
+		3582E6CD2A0DDB7A00DAF76C /* EmailMeSupportCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailMeSupportCellController.swift; sourceTree = "<group>"; };
+		3582E6CF2A0DDB7A00DAF76C /* EmailMeSupportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailMeSupportCell.swift; sourceTree = "<group>"; };
+		3582E6D22A0DDB7A00DAF76C /* TelegramChatSupportCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegramChatSupportCellController.swift; sourceTree = "<group>"; };
+		3582E6D42A0DDB7A00DAF76C /* TelegramChatSupportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegramChatSupportCell.swift; sourceTree = "<group>"; };
+		3582E6D72A0DDB7A00DAF76C /* AppIconSettingsCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCellController.swift; sourceTree = "<group>"; };
+		3582E6D92A0DDB7A00DAF76C /* AppIconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconCollectionViewCell.swift; sourceTree = "<group>"; };
+		3582E6DA2A0DDB7A00DAF76C /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
+		3582E6DC2A0DDB7A00DAF76C /* SettingsCellTappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellTappableProtocol.swift; sourceTree = "<group>"; };
+		3582E6DF2A0DDB7A00DAF76C /* ColorThemeSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingsViewController.swift; sourceTree = "<group>"; };
+		3582E6E12A0DDB7A00DAF76C /* ColorThemeSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingsView.swift; sourceTree = "<group>"; };
+		3582E6E32A0DDB7A00DAF76C /* ThemeColorsBlocksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorsBlocksView.swift; sourceTree = "<group>"; };
+		3582E6E52A0DDB7A00DAF76C /* ColorThemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorThemeCell.swift; sourceTree = "<group>"; };
+		3582E6FA2A0DDD1500DAF76C /* ConditionImageConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionImageConfigurator.swift; sourceTree = "<group>"; };
+		3582E6FB2A0DDD1500DAF76C /* ConditionImageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionImageBuilder.swift; sourceTree = "<group>"; };
+		3582E6FC2A0DDD1500DAF76C /* DesignManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
+		3582E7012A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteSunAppIcon@2x.png"; sourceTree = "<group>"; };
+		3582E7022A0DE2ED00DAF76C /* cornerSun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cornerSun@2x.png"; sourceTree = "<group>"; };
+		3582E7032A0DE2ED00DAF76C /* moon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moon@2x.png"; sourceTree = "<group>"; };
+		3582E7042A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkWhiteCloudAppIcon@2x.png"; sourceTree = "<group>"; };
+		3582E7052A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkWhiteCloudAppIcon@3x.png"; sourceTree = "<group>"; };
+		3582E7062A0DE2ED00DAF76C /* moon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moon@3x.png"; sourceTree = "<group>"; };
+		3582E7072A0DE2ED00DAF76C /* whiteSunAppIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteSunAppIcon@3x.png"; sourceTree = "<group>"; };
+		3582E7082A0DE2ED00DAF76C /* cornerSun@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cornerSun@3x.png"; sourceTree = "<group>"; };
+		3582E7092A0DE2ED00DAF76C /* yellowSun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowSun@2x.png"; sourceTree = "<group>"; };
+		3582E70A2A0DE2ED00DAF76C /* yellowSun@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowSun@3x.png"; sourceTree = "<group>"; };
+		3582E70B2A0DE2ED00DAF76C /* orangeCloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orangeCloud@2x.png"; sourceTree = "<group>"; };
+		3582E70C2A0DE2ED00DAF76C /* blueWhiteCloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueWhiteCloud@2x.png"; sourceTree = "<group>"; };
+		3582E70D2A0DE2ED00DAF76C /* blueWhiteCloud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueWhiteCloud@3x.png"; sourceTree = "<group>"; };
+		3582E70E2A0DE2ED00DAF76C /* orangeCloud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orangeCloud@3x.png"; sourceTree = "<group>"; };
+		3582E71D2A0DE2F900DAF76C /* ColorThemes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorThemes.json; sourceTree = "<group>"; };
 		35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempVM.swift; sourceTree = "<group>"; };
@@ -157,6 +295,7 @@
 		352800EB2A0BA82800D51F70 /* DevDigitalTask */ = {
 			isa = PBXGroup;
 			children = (
+				3534F4D82A0D5B8C00148B00 /* Views */,
 				3534F4D22A0D40DD00148B00 /* SupportingFiles */,
 				3563DA232A0C99D5006B0C7E /* Resources */,
 				3524431F2A0BF06100EBC9E6 /* Utilis */,
@@ -234,8 +373,11 @@
 		3534F4D22A0D40DD00148B00 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3582E71D2A0DE2F900DAF76C /* ColorThemes.json */,
+				3582E7002A0DE2ED00DAF76C /* App Icons */,
 				3534F4D52A0D44D700148B00 /* Constants */,
 				3534F4D32A0D411C00148B00 /* WeatherCoreDataManager.swift */,
+				354BE9BF2A0DD8CA00E12CE7 /* UserDefaultsManager.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -244,8 +386,219 @@
 			isa = PBXGroup;
 			children = (
 				3534F4D62A0D44ED00148B00 /* Constants.swift */,
+				354BE9BD2A0DD83300E12CE7 /* Grid.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		3534F4D82A0D5B8C00148B00 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3534F4D92A0D5BEE00148B00 /* CityTableViewCell.swift */,
+				3534F4DA2A0D5BEE00148B00 /* CityTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		354BE9262A0DD32300E12CE7 /* CityScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6F92A0DDD1500DAF76C /* Design Manager */,
+				3582E6B62A0DDB7A00DAF76C /* Settings */,
+				3582E6A62A0DDB7500DAF76C /* App components */,
+				3582E6A42A0DDB7500DAF76C /* App Icon Manager */,
+				354BE9AB2A0DD42900E12CE7 /* AlertViewBuilder */,
+				354BE94D2A0DD3D000E12CE7 /* Add city */,
+				354BE9542A0DD3D000E12CE7 /* Controller */,
+				354BE9582A0DD3D100E12CE7 /* View */,
+				354BE94A2A0DD38800E12CE7 /* TransitionAnimation */,
+				354BE9272A0DD36800E12CE7 /* City details  */,
+				354BE9382A0DD36900E12CE7 /* Network manager */,
+			);
+			path = CityScreen;
+			sourceTree = "<group>";
+		};
+		354BE9272A0DD36800E12CE7 /* City details  */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9282A0DD36800E12CE7 /* Controller */,
+				354BE92A2A0DD36800E12CE7 /* View */,
+			);
+			path = "City details ";
+			sourceTree = "<group>";
+		};
+		354BE9282A0DD36800E12CE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9292A0DD36800E12CE7 /* CityDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		354BE92A2A0DD36800E12CE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354BE92B2A0DD36800E12CE7 /* ValidatedLabel */,
+				354BE92D2A0DD36800E12CE7 /* WeeklyForecast */,
+				354BE9312A0DD36800E12CE7 /* WeatherQualityInfo */,
+				354BE9342A0DD36800E12CE7 /* CityDetailView.swift */,
+				354BE9352A0DD36800E12CE7 /* HourlyForecast */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		354BE92B2A0DD36800E12CE7 /* ValidatedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				354BE92C2A0DD36800E12CE7 /* DegreeLabel.swift */,
+			);
+			path = ValidatedLabel;
+			sourceTree = "<group>";
+		};
+		354BE92D2A0DD36800E12CE7 /* WeeklyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				354BE92E2A0DD36800E12CE7 /* Cells */,
+				354BE9302A0DD36800E12CE7 /* WeeklyForecastTableView.swift */,
+			);
+			path = WeeklyForecast;
+			sourceTree = "<group>";
+		};
+		354BE92E2A0DD36800E12CE7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				354BE92F2A0DD36800E12CE7 /* WeeklyForecastCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		354BE9312A0DD36800E12CE7 /* WeatherQualityInfo */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9322A0DD36800E12CE7 /* WeatherQualityItemView.swift */,
+				354BE9332A0DD36800E12CE7 /* WeatherQualityInfoView.swift */,
+			);
+			path = WeatherQualityInfo;
+			sourceTree = "<group>";
+		};
+		354BE9352A0DD36800E12CE7 /* HourlyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9362A0DD36800E12CE7 /* HourlyCollectionViewCell.swift */,
+				354BE9372A0DD36800E12CE7 /* HourlyForecastView.swift */,
+			);
+			path = HourlyForecast;
+			sourceTree = "<group>";
+		};
+		354BE9382A0DD36900E12CE7 /* Network manager */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9392A0DD36900E12CE7 /* NetworkManager.swift */,
+				354BE93A2A0DD36900E12CE7 /* Model */,
+				354BE93C2A0DD36900E12CE7 /* Data */,
+			);
+			path = "Network manager";
+			sourceTree = "<group>";
+		};
+		354BE93A2A0DD36900E12CE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				354BE93B2A0DD36900E12CE7 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		354BE93C2A0DD36900E12CE7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				354BE93D2A0DD36900E12CE7 /* WeatherData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		354BE94A2A0DD38800E12CE7 /* TransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				354BE94B2A0DD38800E12CE7 /* FadeTransitionAnimator.swift */,
+			);
+			path = TransitionAnimation;
+			sourceTree = "<group>";
+		};
+		354BE94D2A0DD3D000E12CE7 /* Add city */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9502A0DD3D000E12CE7 /* Controller */,
+				354BE9522A0DD3D000E12CE7 /* View */,
+			);
+			path = "Add city";
+			sourceTree = "<group>";
+		};
+		354BE9502A0DD3D000E12CE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9512A0DD3D000E12CE7 /* AddCityViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		354BE9522A0DD3D000E12CE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9532A0DD3D000E12CE7 /* AddCityView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		354BE9542A0DD3D000E12CE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9552A0DD3D000E12CE7 /* TableViewDataDelegate */,
+				354BE9572A0DD3D000E12CE7 /* MainMenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		354BE9552A0DD3D000E12CE7 /* TableViewDataDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9562A0DD3D000E12CE7 /* MainMenuTableViewDelegate.swift */,
+			);
+			path = TableViewDataDelegate;
+			sourceTree = "<group>";
+		};
+		354BE9582A0DD3D100E12CE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9592A0DD3D100E12CE7 /* Cells */,
+				354BE95C2A0DD3D100E12CE7 /* MainMenuView.swift */,
+				354BE95D2A0DD3D100E12CE7 /* Cell builder */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		354BE9592A0DD3D100E12CE7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				354BE95A2A0DD3D100E12CE7 /* MainMenuTableViewCell.swift */,
+				354BE95B2A0DD3D100E12CE7 /* LoadingCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		354BE95D2A0DD3D100E12CE7 /* Cell builder */ = {
+			isa = PBXGroup;
+			children = (
+				354BE95E2A0DD3D100E12CE7 /* MainMenuCellBuilder.swift */,
+			);
+			path = "Cell builder";
+			sourceTree = "<group>";
+		};
+		354BE9AB2A0DD42900E12CE7 /* AlertViewBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				354BE9AC2A0DD42900E12CE7 /* AlertViewBuilder.swift */,
+			);
+			path = AlertViewBuilder;
 			sourceTree = "<group>";
 		};
 		3563DA232A0C99D5006B0C7E /* Resources */ = {
@@ -257,9 +610,343 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		3582E6A42A0DDB7500DAF76C /* App Icon Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6A52A0DDB7500DAF76C /* AppIconManger.swift */,
+			);
+			path = "App Icon Manager";
+			sourceTree = "<group>";
+		};
+		3582E6A62A0DDB7500DAF76C /* App components */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6A72A0DDB7500DAF76C /* AppComponents.swift */,
+				3582E6A82A0DDB7500DAF76C /* Color themes */,
+			);
+			path = "App components";
+			sourceTree = "<group>";
+		};
+		3582E6A82A0DDB7500DAF76C /* Color themes */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6A92A0DDB7500DAF76C /* Model */,
+			);
+			path = "Color themes";
+			sourceTree = "<group>";
+		};
+		3582E6A92A0DDB7500DAF76C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6AA2A0DDB7500DAF76C /* Color theme manager */,
+				3582E6AD2A0DDB7500DAF76C /* Color theme data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3582E6AA2A0DDB7500DAF76C /* Color theme manager */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6AB2A0DDB7500DAF76C /* ColorThemeModel.swift */,
+				3582E6AC2A0DDB7500DAF76C /* ColorThemeManager.swift */,
+			);
+			path = "Color theme manager";
+			sourceTree = "<group>";
+		};
+		3582E6AD2A0DDB7500DAF76C /* Color theme data */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6AE2A0DDB7500DAF76C /* ColorThemeModelStructs.swift */,
+				3582E6AF2A0DDB7500DAF76C /* ColorThemeData.swift */,
+			);
+			path = "Color theme data";
+			sourceTree = "<group>";
+		};
+		3582E6B62A0DDB7A00DAF76C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6B72A0DDB7A00DAF76C /* Settings screen */,
+				3582E6BC2A0DDB7A00DAF76C /* Settings Sections */,
+				3582E6DD2A0DDB7A00DAF76C /* Theme screen */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3582E6B72A0DDB7A00DAF76C /* Settings screen */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6B82A0DDB7A00DAF76C /* Controller */,
+				3582E6BA2A0DDB7A00DAF76C /* View */,
+			);
+			path = "Settings screen";
+			sourceTree = "<group>";
+		};
+		3582E6B82A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6B92A0DDB7A00DAF76C /* SettingsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6BA2A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6BB2A0DDB7A00DAF76C /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6BC2A0DDB7A00DAF76C /* Settings Sections */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6BD2A0DDB7A00DAF76C /* Standart cells */,
+				3582E6BF2A0DDB7A00DAF76C /* App settings */,
+				3582E6CA2A0DDB7A00DAF76C /* Support */,
+				3582E6D52A0DDB7A00DAF76C /* App icon */,
+				3582E6DB2A0DDB7A00DAF76C /* Protocols */,
+			);
+			path = "Settings Sections";
+			sourceTree = "<group>";
+		};
+		3582E6BD2A0DDB7A00DAF76C /* Standart cells */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6BE2A0DDB7A00DAF76C /* StandartSettingsCell.swift */,
+			);
+			path = "Standart cells";
+			sourceTree = "<group>";
+		};
+		3582E6BF2A0DDB7A00DAF76C /* App settings */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C02A0DDB7A00DAF76C /* UnitsSettingsCell */,
+				3582E6C52A0DDB7A00DAF76C /* ColorThemeSettingsCell */,
+			);
+			path = "App settings";
+			sourceTree = "<group>";
+		};
+		3582E6C02A0DDB7A00DAF76C /* UnitsSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C12A0DDB7A00DAF76C /* Controller */,
+				3582E6C32A0DDB7A00DAF76C /* View */,
+			);
+			path = UnitsSettingsCell;
+			sourceTree = "<group>";
+		};
+		3582E6C12A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C22A0DDB7A00DAF76C /* UnitsSettingsCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6C32A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C42A0DDB7A00DAF76C /* UnitsSettingsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6C52A0DDB7A00DAF76C /* ColorThemeSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C62A0DDB7A00DAF76C /* Controller */,
+				3582E6C82A0DDB7A00DAF76C /* View */,
+			);
+			path = ColorThemeSettingsCell;
+			sourceTree = "<group>";
+		};
+		3582E6C62A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C72A0DDB7A00DAF76C /* ColorThemeSettingsCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6C82A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6C92A0DDB7A00DAF76C /* ColorThemeSettingsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6CA2A0DDB7A00DAF76C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6CB2A0DDB7A00DAF76C /* EmailMeSupportCell */,
+				3582E6D02A0DDB7A00DAF76C /* TelegramChatSupportCell */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		3582E6CB2A0DDB7A00DAF76C /* EmailMeSupportCell */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6CC2A0DDB7A00DAF76C /* Controller */,
+				3582E6CE2A0DDB7A00DAF76C /* View */,
+			);
+			path = EmailMeSupportCell;
+			sourceTree = "<group>";
+		};
+		3582E6CC2A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6CD2A0DDB7A00DAF76C /* EmailMeSupportCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6CE2A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6CF2A0DDB7A00DAF76C /* EmailMeSupportCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6D02A0DDB7A00DAF76C /* TelegramChatSupportCell */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D12A0DDB7A00DAF76C /* Controller */,
+				3582E6D32A0DDB7A00DAF76C /* View */,
+			);
+			path = TelegramChatSupportCell;
+			sourceTree = "<group>";
+		};
+		3582E6D12A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D22A0DDB7A00DAF76C /* TelegramChatSupportCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6D32A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D42A0DDB7A00DAF76C /* TelegramChatSupportCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6D52A0DDB7A00DAF76C /* App icon */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D62A0DDB7A00DAF76C /* Controller */,
+				3582E6D82A0DDB7A00DAF76C /* View */,
+			);
+			path = "App icon";
+			sourceTree = "<group>";
+		};
+		3582E6D62A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D72A0DDB7A00DAF76C /* AppIconSettingsCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6D82A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6D92A0DDB7A00DAF76C /* AppIconCollectionViewCell.swift */,
+				3582E6DA2A0DDB7A00DAF76C /* AppIconSettingsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6DB2A0DDB7A00DAF76C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6DC2A0DDB7A00DAF76C /* SettingsCellTappableProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3582E6DD2A0DDB7A00DAF76C /* Theme screen */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6DE2A0DDB7A00DAF76C /* Controller */,
+				3582E6E02A0DDB7A00DAF76C /* View */,
+			);
+			path = "Theme screen";
+			sourceTree = "<group>";
+		};
+		3582E6DE2A0DDB7A00DAF76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6DF2A0DDB7A00DAF76C /* ColorThemeSettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3582E6E02A0DDB7A00DAF76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6E12A0DDB7A00DAF76C /* ColorThemeSettingsView.swift */,
+				3582E6E22A0DDB7A00DAF76C /* Color boxes */,
+				3582E6E42A0DDB7A00DAF76C /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3582E6E22A0DDB7A00DAF76C /* Color boxes */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6E32A0DDB7A00DAF76C /* ThemeColorsBlocksView.swift */,
+			);
+			path = "Color boxes";
+			sourceTree = "<group>";
+		};
+		3582E6E42A0DDB7A00DAF76C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6E52A0DDB7A00DAF76C /* ColorThemeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3582E6F92A0DDD1500DAF76C /* Design Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3582E6FA2A0DDD1500DAF76C /* ConditionImageConfigurator.swift */,
+				3582E6FB2A0DDD1500DAF76C /* ConditionImageBuilder.swift */,
+				3582E6FC2A0DDD1500DAF76C /* DesignManager.swift */,
+			);
+			path = "Design Manager";
+			sourceTree = "<group>";
+		};
+		3582E7002A0DE2ED00DAF76C /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				3582E7012A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png */,
+				3582E7022A0DE2ED00DAF76C /* cornerSun@2x.png */,
+				3582E7032A0DE2ED00DAF76C /* moon@2x.png */,
+				3582E7042A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@2x.png */,
+				3582E7052A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@3x.png */,
+				3582E7062A0DE2ED00DAF76C /* moon@3x.png */,
+				3582E7072A0DE2ED00DAF76C /* whiteSunAppIcon@3x.png */,
+				3582E7082A0DE2ED00DAF76C /* cornerSun@3x.png */,
+				3582E7092A0DE2ED00DAF76C /* yellowSun@2x.png */,
+				3582E70A2A0DE2ED00DAF76C /* yellowSun@3x.png */,
+				3582E70B2A0DE2ED00DAF76C /* orangeCloud@2x.png */,
+				3582E70C2A0DE2ED00DAF76C /* blueWhiteCloud@2x.png */,
+				3582E70D2A0DE2ED00DAF76C /* blueWhiteCloud@3x.png */,
+				3582E70E2A0DE2ED00DAF76C /* orangeCloud@3x.png */,
+			);
+			path = "App Icons";
+			sourceTree = "<group>";
+		};
 		35C8A0E32A0CE7E600D92D52 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				354BE9262A0DD32300E12CE7 /* CityScreen */,
 				3524431D2A0BEAFA00EBC9E6 /* TempViewController.swift */,
 				35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */,
 				35C8A0E42A0CE81C00D92D52 /* CityViewController.swift */,
@@ -372,10 +1059,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3582E7182A0DE2ED00DAF76C /* yellowSun@3x.png in Resources */,
+				3582E71E2A0DE2F900DAF76C /* ColorThemes.json in Resources */,
 				352800FC2A0BA82A00D51F70 /* LaunchScreen.storyboard in Resources */,
+				3582E7122A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@2x.png in Resources */,
+				3582E7172A0DE2ED00DAF76C /* yellowSun@2x.png in Resources */,
+				3582E7132A0DE2ED00DAF76C /* darkWhiteCloudAppIcon@3x.png in Resources */,
+				3582E7162A0DE2ED00DAF76C /* cornerSun@3x.png in Resources */,
 				352801262A0BAB7B00D51F70 /* MapItemTableViewCell.xib in Resources */,
 				352800F92A0BA82A00D51F70 /* Assets.xcassets in Resources */,
 				3528012B2A0BAB7B00D51F70 /* SearchCompletionTableViewCell.xib in Resources */,
+				3582E7112A0DE2ED00DAF76C /* moon@2x.png in Resources */,
+				3582E7102A0DE2ED00DAF76C /* cornerSun@2x.png in Resources */,
+				3534F4DC2A0D5BEE00148B00 /* CityTableViewCell.xib in Resources */,
+				3582E70F2A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png in Resources */,
+				3582E7192A0DE2ED00DAF76C /* orangeCloud@2x.png in Resources */,
+				3582E71A2A0DE2ED00DAF76C /* blueWhiteCloud@2x.png in Resources */,
+				3582E71C2A0DE2ED00DAF76C /* orangeCloud@3x.png in Resources */,
+				3582E7142A0DE2ED00DAF76C /* moon@3x.png in Resources */,
+				3582E7152A0DE2ED00DAF76C /* whiteSunAppIcon@3x.png in Resources */,
+				3582E71B2A0DE2ED00DAF76C /* blueWhiteCloud@3x.png in Resources */,
 				352800F42A0BA82800D51F70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,30 +1104,83 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3582E6B42A0DDB7500DAF76C /* ColorThemeModelStructs.swift in Sources */,
 				3534F4D72A0D44ED00148B00 /* Constants.swift in Sources */,
 				3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */,
+				354BE9452A0DD36900E12CE7 /* HourlyCollectionViewCell.swift in Sources */,
+				3534F4DB2A0D5BEE00148B00 /* CityTableViewCell.swift in Sources */,
+				354BE9672A0DD3D100E12CE7 /* MainMenuCellBuilder.swift in Sources */,
+				354BE9402A0DD36900E12CE7 /* WeeklyForecastCell.swift in Sources */,
+				3582E6E82A0DDB7A00DAF76C /* StandartSettingsCell.swift in Sources */,
+				3582E6ED2A0DDB7A00DAF76C /* EmailMeSupportCellController.swift in Sources */,
+				354BE9632A0DD3D100E12CE7 /* MainMenuViewController.swift in Sources */,
+				3582E6F72A0DDB7A00DAF76C /* ThemeColorsBlocksView.swift in Sources */,
+				3582E6F82A0DDB7A00DAF76C /* ColorThemeCell.swift in Sources */,
+				3582E6EE2A0DDB7A00DAF76C /* EmailMeSupportCell.swift in Sources */,
+				3582E6F52A0DDB7A00DAF76C /* ColorThemeSettingsViewController.swift in Sources */,
+				354BE94C2A0DD38800E12CE7 /* FadeTransitionAnimator.swift in Sources */,
 				3528012A2A0BAB7B00D51F70 /* BottomSheetView.swift in Sources */,
+				3582E6FF2A0DDD1500DAF76C /* DesignManager.swift in Sources */,
+				354BE9492A0DD36900E12CE7 /* WeatherData.swift in Sources */,
 				352800ED2A0BA82800D51F70 /* AppDelegate.swift in Sources */,
+				3582E6B12A0DDB7500DAF76C /* AppComponents.swift in Sources */,
 				3534F4D12A0D407F00148B00 /* City+CoreDataProperties.swift in Sources */,
 				352801322A0BAB8700D51F70 /* CLLocationCoordinate2D.swift in Sources */,
+				3582E6EF2A0DDB7A00DAF76C /* TelegramChatSupportCellController.swift in Sources */,
+				354BE9BE2A0DD83300E12CE7 /* Grid.swift in Sources */,
 				352800EF2A0BA82800D51F70 /* SceneDelegate.swift in Sources */,
+				354BE93E2A0DD36900E12CE7 /* CityDetailViewController.swift in Sources */,
+				3582E6E72A0DDB7A00DAF76C /* SettingsView.swift in Sources */,
+				354BE9412A0DD36900E12CE7 /* WeeklyForecastTableView.swift in Sources */,
+				354BE9602A0DD3D100E12CE7 /* AddCityViewController.swift in Sources */,
+				3582E6E62A0DDB7A00DAF76C /* SettingsTableViewController.swift in Sources */,
+				354BE9432A0DD36900E12CE7 /* WeatherQualityInfoView.swift in Sources */,
 				352801282A0BAB7B00D51F70 /* MapTabsView.swift in Sources */,
+				3582E6F62A0DDB7A00DAF76C /* ColorThemeSettingsView.swift in Sources */,
 				3534F4CB2A0D3E9100148B00 /* CitiesModel.xcdatamodeld in Sources */,
 				352801292A0BAB7B00D51F70 /* MapItemTableViewCell.swift in Sources */,
 				352800F72A0BA82800D51F70 /* DevDigitalTask.xcdatamodeld in Sources */,
+				354BE9472A0DD36900E12CE7 /* NetworkManager.swift in Sources */,
 				3534F4D02A0D407F00148B00 /* City+CoreDataClass.swift in Sources */,
+				3582E6F32A0DDB7A00DAF76C /* AppIconSettingsCell.swift in Sources */,
+				354BE9662A0DD3D100E12CE7 /* MainMenuView.swift in Sources */,
+				354BE9652A0DD3D100E12CE7 /* LoadingCell.swift in Sources */,
+				3582E6F22A0DDB7A00DAF76C /* AppIconCollectionViewCell.swift in Sources */,
+				3582E6F42A0DDB7A00DAF76C /* SettingsCellTappableProtocol.swift in Sources */,
+				354BE9462A0DD36900E12CE7 /* HourlyForecastView.swift in Sources */,
+				3582E6FE2A0DDD1500DAF76C /* ConditionImageBuilder.swift in Sources */,
+				3582E6B32A0DDB7500DAF76C /* ColorThemeManager.swift in Sources */,
+				354BE9612A0DD3D100E12CE7 /* AddCityView.swift in Sources */,
+				3582E6F02A0DDB7A00DAF76C /* TelegramChatSupportCell.swift in Sources */,
 				3524431E2A0BEAFA00EBC9E6 /* TempViewController.swift in Sources */,
+				3582E6EC2A0DDB7A00DAF76C /* ColorThemeSettingsCell.swift in Sources */,
+				3582E6B22A0DDB7500DAF76C /* ColorThemeModel.swift in Sources */,
 				3534F4D42A0D411C00148B00 /* WeatherCoreDataManager.swift in Sources */,
+				354BE9482A0DD36900E12CE7 /* WeatherModel.swift in Sources */,
+				354BE93F2A0DD36900E12CE7 /* DegreeLabel.swift in Sources */,
 				3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */,
+				3582E6B02A0DDB7500DAF76C /* AppIconManger.swift in Sources */,
 				352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */,
+				3582E6E92A0DDB7A00DAF76C /* UnitsSettingsCellController.swift in Sources */,
+				354BE9442A0DD36900E12CE7 /* CityDetailView.swift in Sources */,
+				3582E6FD2A0DDD1500DAF76C /* ConditionImageConfigurator.swift in Sources */,
 				35C8A0F12A0CFD2D00D92D52 /* PlaceAnnotation.swift in Sources */,
+				354BE9AD2A0DD42900E12CE7 /* AlertViewBuilder.swift in Sources */,
+				3582E6F12A0DDB7A00DAF76C /* AppIconSettingsCellController.swift in Sources */,
 				35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */,
+				3582E6B52A0DDB7500DAF76C /* ColorThemeData.swift in Sources */,
+				354BE9622A0DD3D100E12CE7 /* MainMenuTableViewDelegate.swift in Sources */,
 				352801272A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift in Sources */,
 				352801312A0BAB8700D51F70 /* MKMapView.swift in Sources */,
 				352443212A0BF08200EBC9E6 /* LocationManager.swift in Sources */,
 				35C8A0E52A0CE81C00D92D52 /* CityViewController.swift in Sources */,
+				3582E6EA2A0DDB7A00DAF76C /* UnitsSettingsCell.swift in Sources */,
 				3563DA1E2A0C934B006B0C7E /* CustomAnnotation.swift in Sources */,
+				354BE9C02A0DD8CA00E12CE7 /* UserDefaultsManager.swift in Sources */,
+				3582E6EB2A0DDB7A00DAF76C /* ColorThemeSettingsCellController.swift in Sources */,
+				354BE9422A0DD36900E12CE7 /* WeatherQualityItemView.swift in Sources */,
 				35C8A0ED2A0CF10300D92D52 /* HelpViewController.swift in Sources */,
+				354BE9642A0DD3D100E12CE7 /* MainMenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
