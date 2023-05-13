@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dev Digital</title>
+</head>
+
+<body>
+    <h2>Web view</h2>
+   <p> An object that displays interactive web content, such as for an in-app browser. </p>
+</br>
+<h5>Description</h5>
+<span>Overview A WKWebView object is a platform-native view that you use to incorporate web content seamlessly into your app’s UI. A web view supports a full web-browsing experience, and presents HTML, CSS, and JavaScript content alongside your app’s
+native views. Use it when web technologies satisfy your app’s layout and styling requirements more readily than native
+views. For example, you might use it when your app’s content changes frequently.
+A web view offers control over the navigation and user experience through delegate objects. Use the navigation delegate
+to react when the user clicks links in your web content, or interacts with the content in a way that affects navigation.
+For example, you might prevent the user from navigating to new content unless specific conditions are met. Use the UI
+delegate to present native UI elements, such as alerts or contextual menus, in response to interactions with your web
+content.
+</span>
+
+</br>
+<h2>Gesture</h2>
+<p>Coordinating multiple gesture recognizers</p>
+</br>
+<h5>Description</h5>
+<span>Gesture recognizers track incoming touch events separately, but UIKit normally allows the recognition of only one gesture at a time on a single view. Recognizing only one gesture at a time is usually preferable because it prevents user input from triggering more than one action at a time. However, this default behavior can introduce unintended side effects. For example, in a view that contains both pan and swipe gesture recognizers, swipes are never recognized. Because the pan gesture recognizer is continuous, it always recognizes its gesture before the swipe gesture recognizer, which is discrete.
+    To prevent the unintended side effects of the default recognition behavior, you can tell UIKit to recognize gestures in a specific order using a delegate object. UIKit uses the methods of your delegate object to determine whether a gesture recognizer must come before or after other gesture recognizers. For example, your delegate can tell UIKit that a swipe gesture recognizer must fail before a pan gesture recognizer is allowed to act. Your delegate can also tell UIKit that two gestures can be recognized simultaneously.
+</span>
+</body>
+
+</html>

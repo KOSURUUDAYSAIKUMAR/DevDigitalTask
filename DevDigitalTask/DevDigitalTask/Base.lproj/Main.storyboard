@@ -91,18 +91,69 @@
         <!--Help-->
         <scene sceneID="MCP-Rz-RpI">
             <objects>
-                <viewController id="gq5-hb-egg" sceneMemberID="viewController">
+                <viewController id="gq5-hb-egg" customClass="HelpViewController" customModule="DevDigitalTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oeE-OO-WAT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A58-sk-XlI">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suV-cN-3PN">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="71"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aro-jA-rMO">
+                                                <rect key="frame" x="166.33333333333334" y="17.666666666666671" width="60.666666666666657" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="aro-jA-rMO" firstAttribute="centerX" secondItem="suV-cN-3PN" secondAttribute="centerX" id="BHt-hz-sOV"/>
+                                            <constraint firstItem="aro-jA-rMO" firstAttribute="centerY" secondItem="suV-cN-3PN" secondAttribute="centerY" id="j92-kC-FUW"/>
+                                        </constraints>
+                                    </view>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hk0-aX-NcS">
+                                        <rect key="frame" x="10" y="71" width="373" height="639"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="suV-cN-3PN" firstAttribute="height" secondItem="A58-sk-XlI" secondAttribute="height" multiplier="0.1" id="9Ph-IL-zdt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hk0-aX-NcS" secondAttribute="trailing" constant="10" id="UfN-vK-kDo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hk0-aX-NcS" secondAttribute="bottom" id="X2L-Gl-HAu"/>
+                                    <constraint firstItem="suV-cN-3PN" firstAttribute="leading" secondItem="A58-sk-XlI" secondAttribute="leading" id="XVe-X6-Fbn"/>
+                                    <constraint firstItem="Hk0-aX-NcS" firstAttribute="top" secondItem="suV-cN-3PN" secondAttribute="bottom" id="cdF-ZU-YWC"/>
+                                    <constraint firstItem="Hk0-aX-NcS" firstAttribute="leading" secondItem="A58-sk-XlI" secondAttribute="leading" constant="10" id="dgz-UP-rMR"/>
+                                    <constraint firstItem="suV-cN-3PN" firstAttribute="top" secondItem="A58-sk-XlI" secondAttribute="top" id="vKK-kh-0vo"/>
+                                    <constraint firstAttribute="trailing" secondItem="suV-cN-3PN" secondAttribute="trailing" id="zII-ys-P1P"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wY6-AJ-Mao"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="A58-sk-XlI" firstAttribute="leading" secondItem="wY6-AJ-Mao" secondAttribute="leading" id="6Lz-Pv-uco"/>
+                            <constraint firstItem="A58-sk-XlI" firstAttribute="top" secondItem="wY6-AJ-Mao" secondAttribute="top" id="AMg-EI-C8K"/>
+                            <constraint firstItem="wY6-AJ-Mao" firstAttribute="bottom" secondItem="A58-sk-XlI" secondAttribute="bottom" id="CBi-Xx-Aft"/>
+                            <constraint firstItem="wY6-AJ-Mao" firstAttribute="trailing" secondItem="A58-sk-XlI" secondAttribute="trailing" id="R8p-Jc-4CI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Help" image="helptab" id="4dN-fj-BjQ"/>
+                    <connections>
+                        <outlet property="helpWebView" destination="Hk0-aX-NcS" id="Ame-IV-8fC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd9-aC-wUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5214.5038167938928" y="724.64788732394368"/>
+            <point key="canvasLocation" x="4946" y="749"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">

@@ -1,9 +1,4 @@
-//
-//  CityTableViewCell.swift
-//  Weather
-//
-//  Created by Александр on 05.04.2021.
-//
+
 
 import UIKit
 

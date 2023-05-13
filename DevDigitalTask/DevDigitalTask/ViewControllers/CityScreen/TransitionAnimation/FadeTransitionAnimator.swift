@@ -1,9 +1,3 @@
-//
-//  CityDetailAnimatorPresent.swift
-//  Weather
-//
-//  Created by Александр on 14.04.2021.
-//
 
 import UIKit
 

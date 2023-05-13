@@ -95,7 +95,7 @@ struct Dev {
 
     struct Network {
         static let baseURL = "https://api.openweathermap.org/data/2.5/onecall?"
-        static let apiKey = "3105f7f3ecb7b6032f375aaf58ed2253"
+        static let apiKey = "fae7190d7e6433ec3a45285ffcf55c86"
         static let lat = "lat="
         static let lon = "lon="
         static let appid = "appid="
