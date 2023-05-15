@@ -472,9 +472,14 @@ extension TempViewController: MKMapViewDelegate {
         var view = mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
         if view == nil {
             let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+            marker.canShowCallout = true
+            let btn = UIButton(type: .detailDisclosure)
+            marker.rightCalloutAccessoryView = btn
             marker.markerTintColor = markerTintColor
             marker.clusteringIdentifier = "MapItem"
             view = marker
+        } else {
+            view?.annotation = annotation
         }
         return view
     }
