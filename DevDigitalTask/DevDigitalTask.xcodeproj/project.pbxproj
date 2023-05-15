@@ -100,6 +100,7 @@
 		35C8A0F12A0CFD2D00D92D52 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */; };
 		35E87E152A0E1DA3003C4D55 /* CityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E87E142A0E1DA3003C4D55 /* CityVM.swift */; };
 		35E87E172A0E4B73003C4D55 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E87E162A0E4B73003C4D55 /* TabBarViewController.swift */; };
+		35EEBA8D2A12A70A00E75F07 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EEBA8C2A12A70A00E75F07 /* CoreDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,13 @@
 			remoteInfo = DevDigitalTask;
 		};
 		3528010D2A0BA82A00D51F70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 352800E12A0BA82800D51F70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 352800E82A0BA82800D51F70;
+			remoteInfo = DevDigitalTask;
+		};
+		35EEBA8E2A12A70A00E75F07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 352800E12A0BA82800D51F70 /* Project object */;
 			proxyType = 1;
@@ -217,6 +225,8 @@
 		35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		35E87E142A0E1DA3003C4D55 /* CityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVM.swift; sourceTree = "<group>"; };
 		35E87E162A0E4B73003C4D55 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		35EEBA8A2A12A70A00E75F07 /* CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35EEBA8C2A12A70A00E75F07 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +245,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		352801092A0BA82A00D51F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35EEBA872A12A70A00E75F07 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,6 +294,7 @@
 				352800E92A0BA82800D51F70 /* DevDigitalTask.app */,
 				352801022A0BA82A00D51F70 /* DevDigitalTaskTests.xctest */,
 				3528010C2A0BA82A00D51F70 /* DevDigitalTaskUITests.xctest */,
+				35EEBA8A2A12A70A00E75F07 /* CoreDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +326,7 @@
 		352801052A0BA82A00D51F70 /* DevDigitalTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				35EEBA8B2A12A70A00E75F07 /* CoreDataTests */,
 				352801062A0BA82A00D51F70 /* DevDigitalTaskTests.swift */,
 			);
 			path = DevDigitalTaskTests;
@@ -675,6 +694,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		35EEBA8B2A12A70A00E75F07 /* CoreDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				35EEBA8C2A12A70A00E75F07 /* CoreDataTests.swift */,
+			);
+			path = CoreDataTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -731,6 +758,24 @@
 			productReference = 3528010C2A0BA82A00D51F70 /* DevDigitalTaskUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		35EEBA892A12A70A00E75F07 /* CoreDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35EEBA922A12A70A00E75F07 /* Build configuration list for PBXNativeTarget "CoreDataTests" */;
+			buildPhases = (
+				35EEBA862A12A70A00E75F07 /* Sources */,
+				35EEBA872A12A70A00E75F07 /* Frameworks */,
+				35EEBA882A12A70A00E75F07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35EEBA8F2A12A70A00E75F07 /* PBXTargetDependency */,
+			);
+			name = CoreDataTests;
+			productName = CoreDataTests;
+			productReference = 35EEBA8A2A12A70A00E75F07 /* CoreDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -738,7 +783,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					352800E82A0BA82800D51F70 = {
@@ -750,6 +795,10 @@
 					};
 					3528010B2A0BA82A00D51F70 = {
 						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 352800E82A0BA82800D51F70;
+					};
+					35EEBA892A12A70A00E75F07 = {
+						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 352800E82A0BA82800D51F70;
 					};
 				};
@@ -770,6 +819,7 @@
 				352800E82A0BA82800D51F70 /* DevDigitalTask */,
 				352801012A0BA82A00D51F70 /* DevDigitalTaskTests */,
 				3528010B2A0BA82A00D51F70 /* DevDigitalTaskUITests */,
+				35EEBA892A12A70A00E75F07 /* CoreDataTests */,
 			);
 		};
 /* End PBXProject section */
@@ -812,6 +862,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3528010A2A0BA82A00D51F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35EEBA882A12A70A00E75F07 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -913,6 +970,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35EEBA862A12A70A00E75F07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35EEBA8D2A12A70A00E75F07 /* CoreDataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -925,6 +990,11 @@
 			isa = PBXTargetDependency;
 			target = 352800E82A0BA82800D51F70 /* DevDigitalTask */;
 			targetProxy = 3528010D2A0BA82A00D51F70 /* PBXContainerItemProxy */;
+		};
+		35EEBA8F2A12A70A00E75F07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 352800E82A0BA82800D51F70 /* DevDigitalTask */;
+			targetProxy = 35EEBA8E2A12A70A00E75F07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1210,6 +1280,50 @@
 			};
 			name = Release;
 		};
+		35EEBA902A12A70A00E75F07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F65446F4X7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaiors.CoreDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevDigitalTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DevDigitalTask";
+			};
+			name = Debug;
+		};
+		35EEBA912A12A70A00E75F07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F65446F4X7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaiors.CoreDataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DevDigitalTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DevDigitalTask";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1245,6 +1359,15 @@
 			buildConfigurations = (
 				3528011D2A0BA82A00D51F70 /* Debug */,
 				3528011E2A0BA82A00D51F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35EEBA922A12A70A00E75F07 /* Build configuration list for PBXNativeTarget "CoreDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35EEBA902A12A70A00E75F07 /* Debug */,
+				35EEBA912A12A70A00E75F07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
