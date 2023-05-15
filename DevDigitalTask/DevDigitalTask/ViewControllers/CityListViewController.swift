@@ -118,7 +118,7 @@ class CityListViewController: UIViewController {
                 let removeEmptyCells: ((UIAlertAction) -> (Void)) = { _ in
                     for (i, weatherModel) in self.displayWeather.enumerated() {
                         if weatherModel == nil {
-                            // self.deleteItem(at: i)
+                            self.dataStorage?.deleteItem(at: i)
                             self.displayWeather.remove(at: i)
                             self.cityTableView.reloadData()
                         }
@@ -211,5 +211,36 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showDetailViewVC()
+    }
+    
+    // Cell editing
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _, _, completionHandler in
+               displayWeather.remove(at: indexPath.row)
+               dataStorage?.deleteItem(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+            completionHandler(true)
+        }
+        let imageSize = Grid.pt60
+        deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: imageSize, height: imageSize)).image { _ in
+            UIImage(named: Dev.ImageName.deleteImage)?.draw(in: CGRect(x: 0, y: 0, width: imageSize, height: imageSize))
+        }
+        deleteAction.backgroundColor = UIColor(white: 1, alpha: 0)
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+
+    // Cell highlight functions
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? MainMenuTableViewCell {
+            cell.isHighlighted = true
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? MainMenuTableViewCell {
+            cell.isHighlighted = false
+        }
     }
 }
