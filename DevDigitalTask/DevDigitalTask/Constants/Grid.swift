@@ -8,6 +8,7 @@ public class Grid {
     public static let pt12: CGFloat = 12
     public static let pt16: CGFloat = 16
     public static let pt20: CGFloat = 20
+    public static let pt22: CGFloat = 22
     public static let pt24: CGFloat = 24
     public static let pt28: CGFloat = 28
     public static let pt32: CGFloat = 32

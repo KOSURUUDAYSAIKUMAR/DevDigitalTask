@@ -12,6 +12,7 @@ class CityListViewController: UIViewController {
     
     private let fadeTransitionAnimator = FadeTransitionAnimator()
     private var weatherManager = NetworkManager()
+//    private var weatherManager = NetworkHandler()
     @IBOutlet weak var cityTableView: UITableView!
     
     let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
@@ -88,6 +89,51 @@ class CityListViewController: UIViewController {
         }
         for (i, city) in savedCities.enumerated() {
             weatherManager.fetchWeather(by: city, at: i)
+//            let lat = city.latitude
+//            let lon = city.longitude
+//            let appid = Dev.Network.apiKey
+//            let units = UserDefaultsManager.UnitData.get()
+//            let params = ["lat": lat,
+//                          "lon":lon,
+//                          "appid":appid,
+//                          "units":units,
+//                          "eclude":Dev.Network.minutely] as [String : Any]
+//            didUpdateWeatherDetailsFromServerUpdateUI(parameters: params, at: i) { success in
+//                if success { }
+//            }
+        }
+    }
+    
+    func didUpdateWeatherDetailsFromServerUpdateUI(parameters: [String:Any], at position: Int, completion: @escaping BoolCompletion) -> Void {
+        DevListHandler().fetchWisdomeList(index: position, page: parameters) { data, error in
+            if error == nil {
+               // Display UI Part
+//                DispatchQueue.main.async { [self] in
+//                    displayWeather[position] = data
+//                    let indexPath = IndexPath(row: position, section: 0)
+//                    // Put chosen city name from addCity autoCompletion into weather data model
+//                    displayWeather[indexPath.row]?.cityName = self.savedCities[indexPath.row].name
+//                    cityTableView.reloadRows(at: [indexPath], with: .fade)
+//                }
+            } else {
+                // Show error message
+                let removeEmptyCells: ((UIAlertAction) -> (Void)) = { _ in
+                    for (i, weatherModel) in self.displayWeather.enumerated() {
+                        if weatherModel == nil {
+                            // self.deleteItem(at: i)
+                            self.displayWeather.remove(at: i)
+                            self.cityTableView.reloadData()
+                        }
+                    }
+                }
+                DispatchQueue.main.async { [self] in
+                    let alert = AlertViewBuilder()
+                        .build(title: "Oops", message: error?.localizedDescription ?? "", preferredStyle: .alert)
+                        .build(title: "Ok", style: .default, handler: removeEmptyCells)
+                        .content
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

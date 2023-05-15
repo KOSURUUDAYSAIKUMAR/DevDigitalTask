@@ -27,6 +27,8 @@
 		352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012D2A0BAB8700D51F70 /* CLPlacemark.swift */; };
 		352801312A0BAB8700D51F70 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012E2A0BAB8700D51F70 /* MKMapView.swift */; };
 		352801322A0BAB8700D51F70 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3528012F2A0BAB8700D51F70 /* CLLocationCoordinate2D.swift */; };
+		352CDEE32A10A2E600695FA8 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CDEE22A10A2E600695FA8 /* Artwork.swift */; };
+		352CDEE52A10A99600695FA8 /* ArtworkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CDEE42A10A99600695FA8 /* ArtworkViews.swift */; };
 		3534F4CB2A0D3E9100148B00 /* CitiesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4C92A0D3E9100148B00 /* CitiesModel.xcdatamodeld */; };
 		3534F4D02A0D407F00148B00 /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4CE2A0D407F00148B00 /* City+CoreDataClass.swift */; };
 		3534F4D12A0D407F00148B00 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3534F4CF2A0D407F00148B00 /* City+CoreDataProperties.swift */; };
@@ -141,6 +143,8 @@
 		3528012D2A0BAB8700D51F70 /* CLPlacemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		3528012E2A0BAB8700D51F70 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		3528012F2A0BAB8700D51F70 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		352CDEE22A10A2E600695FA8 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		352CDEE42A10A99600695FA8 /* ArtworkViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkViews.swift; sourceTree = "<group>"; };
 		3534F4CA2A0D3E9100148B00 /* CitiesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CitiesModel.xcdatamodel; sourceTree = "<group>"; };
 		3534F4CE2A0D407F00148B00 /* City+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		3534F4CF2A0D407F00148B00 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -249,6 +253,8 @@
 				3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */,
 				35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */,
 				35907C8C2A0E626C00BDFE8F /* Storyboard.swift */,
+				352CDEE22A10A2E600695FA8 /* Artwork.swift */,
+				352CDEE42A10A99600695FA8 /* ArtworkViews.swift */,
 			);
 			path = Utilis;
 			sourceTree = "<group>";
@@ -850,6 +856,7 @@
 				3534F4D02A0D407F00148B00 /* City+CoreDataClass.swift in Sources */,
 				354BE9652A0DD3D100E12CE7 /* LoadingCell.swift in Sources */,
 				35907C8B2A0E5C6400BDFE8F /* CityListViewController.swift in Sources */,
+				352CDEE32A10A2E600695FA8 /* Artwork.swift in Sources */,
 				359B44482A0EAAEB00006D09 /* AppComponents.swift in Sources */,
 				35E87E152A0E1DA3003C4D55 /* CityVM.swift in Sources */,
 				359B44512A0EAAF500006D09 /* ConditionImageConfigurator.swift in Sources */,
@@ -860,6 +867,7 @@
 				354BE9482A0DD36900E12CE7 /* WeatherModel.swift in Sources */,
 				3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */,
 				359B444C2A0EAAEB00006D09 /* ColorThemeData.swift in Sources */,
+				352CDEE52A10A99600695FA8 /* ArtworkViews.swift in Sources */,
 				352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */,
 				35E87E172A0E4B73003C4D55 /* TabBarViewController.swift in Sources */,
 				35C8A0F12A0CFD2D00D92D52 /* PlaceAnnotation.swift in Sources */,

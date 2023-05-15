@@ -24,10 +24,10 @@ extension DevApiRouter: NetworkConfiguration {
     var bodyparameters: [String : Any]? {
         switch self {
         case .list(let urlParams):
-            return ["lat":urlParams["lat"],
-                    "lon":urlParams["lon"],
-                    "appid":urlParams["appid"],
-                    "units":urlParams["units"],
+            return ["lat":urlParams["lat"]!,
+                    "lon":urlParams["lon"]!,
+                    "appid":urlParams["appid"]!,
+                    "units":urlParams["units"]!,
                     "eclude":Dev.Network.minutely]
         default:
             break

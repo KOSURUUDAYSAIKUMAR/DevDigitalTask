@@ -66,7 +66,7 @@ class MainMenuTableViewCell: UITableViewCell {
 
     var cityNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: Grid.pt24, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Grid.pt22, weight: .regular)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

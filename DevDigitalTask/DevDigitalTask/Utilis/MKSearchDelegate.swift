@@ -23,5 +23,5 @@ protocol MapKitSearchDelegate {
     func mapKitSearch(_ ViewController: TempViewController, userSelectedGeocodeItem mapItem: MKMapItem)
 
     // Called on the delegate when the user selects an annotation on the map that was added to the map by the search.
-    func mapKitSearch(_ ViewController: TempViewController, userSelectedAnnotationFromMap mapItem: MKMapItem)
+    func mapKitSearch(_ ViewController: TempViewController, userSelectedAnnotationFromMap mapItem: Artwork)
 }

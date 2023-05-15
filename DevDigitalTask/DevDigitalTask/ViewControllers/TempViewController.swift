@@ -43,12 +43,12 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     var searchRequestFuture: Timer?
     var searchRequest: MKLocalSearch?
     var searchMapItems = [MKMapItem]()
-    var geocodeRequestFuture: Timer?
     var mapAnnotations = Set<MKPlacemark>()
     var expandedRatio : CGFloat = 0.45
     open var delegate: MapKitSearchDelegate?
     var nearMe: MKUserTrackingButton?
     public var compass: MKCompassButton?
+    private var artworks: [Artwork] = []
     
     var tableViewType: TableType = .searchCompletion {
         didSet {
@@ -152,7 +152,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     override  func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-     //   displayMapView()
+        displayMapView()
         tableSearchView()
         addNotificationCenter()
         tapGestureHandler()
@@ -163,6 +163,9 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         if let searchBarTextField = searchBarTextField {
             searchBarTextField.font = UIFont.systemFont(ofSize: 15)
         }
+        mapView.register(
+          ArtworkView.self,
+          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     func displayMapView() {
@@ -200,7 +203,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         pinch.delegate = self
         mapView.addGestureRecognizer(pinch)
         let tap = UITapGestureRecognizer(target: self, action: #selector(mapView(isTap:)))
-//        tap.delegate = self
+        tap.delegate = self
         mapView.addGestureRecognizer(tap)
     }
     
@@ -241,23 +244,16 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func mapView(isTap gesture: UITapGestureRecognizer) {
         // If tap is coinciding with pan or pinch gesture, don't geocode.
         guard !isUserMapInteracted else {
-            geocodeRequestCancel()
             return
         }
         // If typing or tableView scrolled, only resize bottom sheet.
         guard !searchBar.isFirstResponder && tableView.contentOffset.y == 0 else {
-            geocodeRequestCancel()
             isUserMapInteracted = true
             isUserMapInteracted = false
             return
         }
         let coordinate = mapView.convert(gesture.location(in: mapView), toCoordinateFrom: mapView)
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        let myPin = MKPointAnnotation()
-        myPin.coordinate = coordinate
-        myPin.title = "other location"
-        myPin.subtitle = "gesture method"
-        mapView.addAnnotation(myPin)
         geocodeRequestInFuture(withLocation: location)
     }
     
@@ -283,26 +279,25 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
-            addPin(location: location.coordinate)
+            geocodeRequestInFuture(withLocation: location, repeats: true)
         }
     }
     
-    func addPin(location: CLLocationCoordinate2D) {
+    func addPin(location: CLLocationCoordinate2D, placemark: CLPlacemark) {
         let pinLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.latitude, location.longitude)
-        let objectAnnotation = MKPointAnnotation()
-        objectAnnotation.coordinate = pinLocation
-        objectAnnotation.title = "Current Location"
-        self.mapView.addAnnotation(objectAnnotation)
+        let myPin = MKPointAnnotation()
+        myPin.coordinate = pinLocation
+        myPin.title = placemark.locality
+        myPin.subtitle = placemark.subLocality
+        self.mapView.addAnnotation(myPin)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard !isUserMapInteracted else {
-            geocodeRequestCancel()
             return true
         }
         // If typing or tableView scrolled, only resize bottom sheet.
         guard !searchBar.isFirstResponder && tableView.contentOffset.y == 0 else {
-            geocodeRequestCancel()
             isUserMapInteracted = true
             isUserMapInteracted = false
             return true
@@ -310,11 +305,6 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let touchLocation = gestureRecognizer.location(in: mapView)
         let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
-        let myPin = MKPointAnnotation()
-        myPin.coordinate = locationCoordinate
-        myPin.title = "other location"
-        myPin.subtitle = "gesture method"
-        mapView.addAnnotation(myPin)
         // If typing or tableView scrolled, only resize bottom sheet.
         let location = CLLocation(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
         geocodeRequestInFuture(withLocation: location)
@@ -350,39 +340,21 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-            try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
     // MARK: - Geocode
     func geocodeRequestInFuture(withLocation location: CLLocation, timeInterval: Double = 1.5, repeats: Bool = false) {
-        geocodeRequestCancel()
-        geocodeRequestFuture = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: repeats) { [weak self] _ in
-            guard let self = self, !self.isUserMapInteracted else {
-                return
-            }
             LocationManager.shared.getReverseGeoCodedLocation(location: location, completionHandler: { location, placemark, error in
                 let placeMark = [placemark!]
                 self.geocodeRequestDidComplete(withPlacemarks: placeMark, error: error)
-                WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
-//                self.cityDelegate?.addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
+                let result = (repeats == true) ? nil : WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
+               
+                DispatchQueue.main.async {
+                    self.addPin(location: location!.coordinate, placemark: placemark!)
+                }
                 guard let savedCities = self.dataStorage?.getSavedItems else {
                     return
                 }
-
                 self.savedCities = savedCities
             })
-        }
     }
     
     func geocodeRequestDidComplete(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
@@ -392,10 +364,6 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         delegate?.mapKitSearch(self, mapItem: mapItem)
         delegate?.mapKitSearch(self, userSelectedGeocodeItem: mapItem)
-    }
-    
-    func geocodeRequestCancel() {
-        geocodeRequestFuture?.invalidate()
     }
     
     // MARK: - Bottom Sheet Gestures
@@ -487,7 +455,14 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
 // MARK: - Map Delegate
 extension TempViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        geocodeRequestCancel()
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let artwork = view.annotation as? Artwork else {
+          return
+        }
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        artwork.mapItem?.openInMaps(launchOptions: launchOptions)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -505,22 +480,19 @@ extension TempViewController: MKMapViewDelegate {
     }
     
     // Locates the PlaceAnnotation from an item on the map
-    func findPlaceAnnotation(from mapItem: MKMapItem) -> PlaceAnnotation? {
-        for annotation in mapView.annotations {
-            if let placeAnnotation = annotation as? PlaceAnnotation {
-                if placeAnnotation.mapItem == mapItem {
-                    return placeAnnotation
-                }
-            }
-        }
-        return nil
+    func findPlaceAnnotations(from mapItem: MKMapItem) -> Artwork? {
+        let artwork = Artwork(
+            title: mapItem.placemark.locality ?? mapItem.placemark.title,
+            locationName: mapItem.placemark.name ?? mapItem.placemark.subtitle,
+            discipline: "Sculpture",
+            coordinate: mapItem.placemark.coordinate)
+        return artwork
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        geocodeRequestCancel()
         //If pressed on one of the annotation, let the delegate know
-        if let annotation = view.annotation as? PlaceAnnotation {
-            delegate?.mapKitSearch(self, userSelectedAnnotationFromMap: annotation.mapItem)
+        if let annotation = view.annotation as? Artwork {
+            delegate?.mapKitSearch(self, userSelectedAnnotationFromMap: annotation)
         }
     }
     
@@ -613,9 +585,6 @@ extension TempViewController: UITableViewDelegate {
                 return
             }
             searchBar.text = searchCompletions[indexPath.row].title
-            let selectedCity = searchCompletions[indexPath.row]
-//            cityViewdelegate?.didChoseCity(title: selectedCity.title,
-//                                   subtitle: selectedCity.subtitle)
             searchBarSearchButtonClicked(searchBar)
             break
         case .mapItem:
@@ -625,9 +594,10 @@ extension TempViewController: UITableViewDelegate {
             let selectedMapItem = searchMapItems[indexPath.row]
             
             //Find the annotation on the map from the selected table entry, zoom to it, hide the table, and let delegate know
-            if let placeAnnotation = findPlaceAnnotation(from: selectedMapItem) {
+            if let placeAnnotation = findPlaceAnnotations(from: selectedMapItem) {
                 centerAndZoomMapOnLocation(placeAnnotation.coordinate)
                 tableViewHide()
+                WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placeAnnotation.title ?? "", lat: placeAnnotation.coordinate.latitude, long: placeAnnotation.coordinate.longitude)
                 delegate?.mapKitSearch(self, mapItem: selectedMapItem)
                 delegate?.mapKitSearch(self, userSelectedListItem: selectedMapItem)
             }
@@ -702,6 +672,7 @@ extension TempViewController {
             for mapItem in response.mapItems {
                 if !mapAnnotations.contains(mapItem.placemark) {
                     mapAnnotations.insert(mapItem.placemark)
+                  //  addPin(location: mapItem.placemark.coordinate, placemark: mapItem.placemark)
                     newAnnotations.append(PlaceAnnotation(mapItem))
                 }
             }
@@ -713,6 +684,8 @@ extension TempViewController {
             var annotations = [PlaceAnnotation]()
             for mapItem in response.mapItems {
                 mapAnnotations.insert(mapItem.placemark)
+             //   addPin(location: mapItem.placemark.coordinate, placemark: mapItem.placemark)
+//                geocodeRequestInFuture(withLocation: mapItem.placemark.location ?? CLLocation(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude))
                 annotations.append(PlaceAnnotation(mapItem))
             }
             // 1 Search Result. Refer to delegate.
