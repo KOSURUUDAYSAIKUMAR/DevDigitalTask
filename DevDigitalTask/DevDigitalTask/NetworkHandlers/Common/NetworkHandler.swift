@@ -18,15 +18,11 @@ class NetworkHandler {
                 if error != nil {
                     // if server returns error
                     completion(.failure(.serverError))
-                 //   self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 if let data = data {
                     // data decoding to generic dictionary
                     if let dataDictionary: [String: Any] = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
-                        if let weather = self.parseJSON(data) {
-                          //  self.delegate?.didUpdateWeather(self, weather: weather, at: position)
-                        }
                         completion(.success(dataDictionary))
                     } else {
                         completion(.failure(.jsonError))
@@ -47,7 +43,7 @@ class NetworkHandler {
             URLSession(configuration: URLSessionConfiguration.default).dataTask(with: urlRequest) { (data, response, error) in
                 if error != nil {
                     // if server returns error
-                    self.delegate?.didFailWithError(error: error!)
+                //    self.delegate?.didFailWithError(error: error!)
                     completion(.failure(.runtimeError(error?.localizedDescription ?? "")))
                     return
                 }
@@ -61,9 +57,6 @@ class NetworkHandler {
                                 //  self.delegate?.didFailWithError(error: error!)
                                 completion(.failure(.jsonError))
                                 return
-                            }
-                            if let weather = self.parseJSON(data) {
-                             //   self.delegate?.didUpdateWeather(self, weather: weather, at: position)
                             }
                             completion(.success(object))
                         }
@@ -105,7 +98,7 @@ class NetworkHandler {
                                          decode: @escaping (Decodable?, APIError?) -> Void)  {
         let jsonString = String(decoding: data, as: UTF8.self)
         do {
-            print("server response :- \(jsonString)")
+       //     print("server response :- \(jsonString)")
             let model = try JSONDecoder().decode(T.self, from: data)
             decode(model, nil)
         } catch {
@@ -120,35 +113,6 @@ class NetworkHandler {
             data.append(key + "=\(value)")
         }
         return data.map { String($0) }.joined(separator: "&")
-    }
-    
-    private func parseJSON(_ weatherData: Data) -> WeatherModel? {
-        let decoder = JSONDecoder() // Create decoder
-        do {
-            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            let result = WeatherModel(lat: decodedData.lat,
-                                      lon: decodedData.lon,
-                                      conditionId: decodedData.current.weather[0].id,
-                                      cityName: Dev.Misc.defaultSityName,
-                                      temperature: decodedData.current.temp,
-                                      timezone: decodedData.timezone_offset,
-                                      feelsLike: decodedData.current.feels_like,
-                                      description: decodedData.current.weather[0].description,
-                                      humidity: decodedData.current.humidity,
-                                      uviIndex: decodedData.current.uvi,
-                                      wind: decodedData.current.wind_speed,
-                                      cloudiness: decodedData.current.clouds,
-                                      pressure: decodedData.current.pressure,
-                                      visibility: decodedData.current.visibility,
-                                      sunrise: decodedData.current.sunrise,
-                                      sunset: decodedData.current.sunset,
-                                      daily: decodedData.daily,
-                                      hourly: decodedData.hourly)
-            return result
-        } catch {
-            delegate?.didFailWithError(error: error)
-            return nil
-        }
     }
 }
 

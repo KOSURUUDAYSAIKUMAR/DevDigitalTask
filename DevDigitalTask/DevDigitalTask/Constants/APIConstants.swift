@@ -13,5 +13,5 @@ struct APIConstants {
 }
 
 extension APIConstants {
-    static let list = "weather"
+    static let list = "onecall"
 }

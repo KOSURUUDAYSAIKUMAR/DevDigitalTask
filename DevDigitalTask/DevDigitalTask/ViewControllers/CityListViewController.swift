@@ -11,8 +11,7 @@ import CoreData
 class CityListViewController: UIViewController {
     
     private let fadeTransitionAnimator = FadeTransitionAnimator()
-    private var weatherManager = NetworkManager()
-//    private var weatherManager = NetworkHandler()
+    private var weatherManager = NetworkHandler()
     @IBOutlet weak var cityTableView: UITableView!
     
     let appComponents = AppComponents(UserDefaultsManager.ColorTheme.getCurrentColorTheme())
@@ -38,8 +37,6 @@ class CityListViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refreshWeatherData(_:)), for: .valueChanged)
         cityTableView.addSubview(refreshControl)
-       
-        weatherManager.delegate = self
         fetchWeatherData()
 //        cityTableView.reloadData()
         // Do any additional setup after loading the view.
@@ -88,33 +85,34 @@ class CityListViewController: UIViewController {
             displayWeather.append(nil)
         }
         for (i, city) in savedCities.enumerated() {
-            weatherManager.fetchWeather(by: city, at: i)
-//            let lat = city.latitude
-//            let lon = city.longitude
-//            let appid = Dev.Network.apiKey
-//            let units = UserDefaultsManager.UnitData.get()
-//            let params = ["lat": lat,
-//                          "lon":lon,
-//                          "appid":appid,
-//                          "units":units,
-//                          "eclude":Dev.Network.minutely] as [String : Any]
-//            didUpdateWeatherDetailsFromServerUpdateUI(parameters: params, at: i) { success in
-//                if success { }
-//            }
+//            weatherManager.fetchWeather(by: city, at: i)
+            
+            let lat = city.latitude
+            let lon = city.longitude
+            let appid = Dev.Network.apiKey
+            let units = UserDefaultsManager.UnitData.get()
+            let params = ["lat": lat,
+                          "lon":lon,
+                          "appid":appid,
+                          "units":units,
+                          "eclude":Dev.Network.minutely] as [String : Any]
+            didUpdateWeatherDetailsFromServerUpdateUI(parameters: params, at: i) { success in
+                if success { }
+            }
         }
     }
-    
+
     func didUpdateWeatherDetailsFromServerUpdateUI(parameters: [String:Any], at position: Int, completion: @escaping BoolCompletion) -> Void {
-        DevListHandler().fetchWisdomeList(index: position, page: parameters) { data, error in
+        DevListHandler().fetchWisdomeList(index: position, page: parameters) { [self] data, error in
             if error == nil {
-               // Display UI Part
-//                DispatchQueue.main.async { [self] in
-//                    displayWeather[position] = data
-//                    let indexPath = IndexPath(row: position, section: 0)
-//                    // Put chosen city name from addCity autoCompletion into weather data model
-//                    displayWeather[indexPath.row]?.cityName = self.savedCities[indexPath.row].name
-//                    cityTableView.reloadRows(at: [indexPath], with: .fade)
-//                }
+                // Display UI Part
+                DispatchQueue.main.async { [self] in
+                    displayWeather[position] = data
+                    let indexPath = IndexPath(row: position, section: 0)
+                    // Put chosen city name from addCity autoCompletion into weather data model
+                    displayWeather[indexPath.row]?.cityName = savedCities[indexPath.row].name
+                    cityTableView.reloadRows(at: [indexPath], with: .fade)
+                }
             } else {
                 // Show error message
                 let removeEmptyCells: ((UIAlertAction) -> (Void)) = { _ in
@@ -126,7 +124,8 @@ class CityListViewController: UIViewController {
                         }
                     }
                 }
-                DispatchQueue.main.async { [self] in
+                
+                DispatchQueue.main.async {
                     let alert = AlertViewBuilder()
                         .build(title: "Oops", message: error?.localizedDescription ?? "", preferredStyle: .alert)
                         .build(title: "Ok", style: .default, handler: removeEmptyCells)
@@ -153,38 +152,6 @@ class CityListViewController: UIViewController {
         destinationVC.localWeatherData = strongWeatherData
         destinationVC.colorThemeComponent = appComponents.colorTheme
         navigationController?.pushViewController(destinationVC, animated: true)
-    }
-}
-
-extension CityListViewController: NetworkManagerDelegate {
-    func didUpdateWeather(_ weatherManager: NetworkManager, weather: WeatherModel, at position: Int) {
-        DispatchQueue.main.async { [self] in
-            displayWeather[position] = weather
-            let indexPath = IndexPath(row: position, section: 0)
-            // Put chosen city name from addCity autoCompletion into weather data model
-            displayWeather[indexPath.row]?.cityName = self.savedCities[indexPath.row].name
-            cityTableView.reloadRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    func didFailWithError(error: Error) {
-        let removeEmptyCells: ((UIAlertAction) -> (Void)) = { _ in
-            for (i, weatherModel) in self.displayWeather.enumerated() {
-                if weatherModel == nil {
-                    // self.deleteItem(at: i)
-                    self.displayWeather.remove(at: i)
-                    self.cityTableView.reloadData()
-                }
-            }
-        }
-        
-        DispatchQueue.main.async {
-            let alert = AlertViewBuilder()
-                .build(title: "Oops", message: error.localizedDescription, preferredStyle: .alert)
-                .build(title: "Ok", style: .default, handler: removeEmptyCells)
-                .content
-            self.present(alert, animated: true, completion: nil)
-        }
     }
 }
 
