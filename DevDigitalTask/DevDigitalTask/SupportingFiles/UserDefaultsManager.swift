@@ -1,4 +1,9 @@
-
+//
+//  UserDefaultsManager.swift
+//  DevDigitalTask
+//
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
+//
 
 import Foundation
 
@@ -15,35 +20,11 @@ struct UserDefaultsManager {
         }
     }
     
-    struct AppIcon {
-        static func get() -> Int {
-            return UserDefaults.standard.integer(forKey: Dev.UserDefaults.appIconNumber)
-        }
-
-        static func set(with num: Int) {
-            UserDefaults.standard.setValue(num, forKey: Dev.UserDefaults.appIconNumber)
-        }
-    }
-    
     struct ColorTheme {
         static func getCurrentColorThemeNumber() -> Int {
             return UserDefaults.standard.integer(forKey: Dev.UserDefaults.colorThemePositionNumber)
         }
 
-        static func setChosenPositionColorTheme(with position: Int) {
-            UserDefaults.standard.setValue(position, forKey: Dev.UserDefaults.colorThemePositionNumber)
-        }
-        
-        static func getColorTheme(_ num: Int) -> ColorThemeModel {
-            let colorThemes = ColorThemeManager.getColorThemes()
-            
-            if colorThemes.count < num {
-                return ColorThemeModel()
-            }
-            
-            return colorThemes[num]
-        }
-        
         static func getCurrentColorTheme() -> ColorThemeModel {
             let currentColorThemeNumber = self.getCurrentColorThemeNumber()
             
@@ -52,7 +33,6 @@ struct UserDefaultsManager {
             if currentColorThemeNumber > colorThemes.count {
                 return ColorThemeModel()
             }
-            
             return colorThemes[currentColorThemeNumber]
         }
     }

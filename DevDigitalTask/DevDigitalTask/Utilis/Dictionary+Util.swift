@@ -1,9 +1,8 @@
 //
-//  Dictionary+Util.swift
-//  ZohoWorkerly
+//  Dictionary.swift
+//  DevDigitalTask
 //
-//  Created by KOSURU UDAY SAIKUMAR on 02/07/20.
-//  Copyright © 2020 KOSURU UDAY SAIKUMAR. All rights reserved.
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
 //
 
 import Foundation

@@ -10,6 +10,7 @@ import WebKit
 
 class HelpViewController: UIViewController {
     
+    // MARK: - User interface objects
     @IBOutlet weak var helpWebView: WKWebView!
     
     override func viewDidLoad() {
@@ -21,12 +22,10 @@ class HelpViewController: UIViewController {
                 print ("File reading error")
                 return
             }
-            
             let contents =  try String(contentsOfFile: filePath, encoding: .utf8)
             let baseUrl = URL(fileURLWithPath: filePath)
             helpWebView.loadHTMLString(contents as String, baseURL: baseUrl)
-        }
-        catch {
+        } catch {
             print ("File HTML error")
         }
         // Do any additional setup after loading the view.

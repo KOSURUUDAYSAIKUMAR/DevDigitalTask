@@ -43,7 +43,6 @@
 		354BE9BE2A0DD83300E12CE7 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9BD2A0DD83300E12CE7 /* Grid.swift */; };
 		354BE9C02A0DD8CA00E12CE7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354BE9BF2A0DD8CA00E12CE7 /* UserDefaultsManager.swift */; };
 		3563DA1E2A0C934B006B0C7E /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */; };
-		3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */; };
 		3563DA222A0C999C006B0C7E /* MKSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */; };
 		3582E70F2A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7012A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png */; };
 		3582E7102A0DE2ED00DAF76C /* cornerSun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3582E7022A0DE2ED00DAF76C /* cornerSun@2x.png */; };
@@ -95,10 +94,7 @@
 		35C579E62A0F5E90003AD86B /* NotificationName+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C579E52A0F5E90003AD86B /* NotificationName+Util.swift */; };
 		35C579E82A0F6631003AD86B /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 35C579E72A0F6631003AD86B /* help.html */; };
 		35C8A0ED2A0CF10300D92D52 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */; };
-		35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */; };
 		35C8A0F12A0CFD2D00D92D52 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */; };
-		35E87E152A0E1DA3003C4D55 /* CityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E87E142A0E1DA3003C4D55 /* CityVM.swift */; };
-		35E87E172A0E4B73003C4D55 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E87E162A0E4B73003C4D55 /* TabBarViewController.swift */; };
 		35EEBA8D2A12A70A00E75F07 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EEBA8C2A12A70A00E75F07 /* CoreDataTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -167,7 +163,6 @@
 		354BE9BD2A0DD83300E12CE7 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		354BE9BF2A0DD8CA00E12CE7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSearchDelegate.swift; sourceTree = "<group>"; };
 		3582E7012A0DE2ED00DAF76C /* whiteSunAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteSunAppIcon@2x.png"; sourceTree = "<group>"; };
 		3582E7022A0DE2ED00DAF76C /* cornerSun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cornerSun@2x.png"; sourceTree = "<group>"; };
@@ -219,10 +214,7 @@
 		35C579E52A0F5E90003AD86B /* NotificationName+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationName+Util.swift"; sourceTree = "<group>"; };
 		35C579E72A0F6631003AD86B /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempVM.swift; sourceTree = "<group>"; };
 		35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
-		35E87E142A0E1DA3003C4D55 /* CityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVM.swift; sourceTree = "<group>"; };
-		35E87E162A0E4B73003C4D55 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		35EEBA8A2A12A70A00E75F07 /* CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EEBA8C2A12A70A00E75F07 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,7 +259,6 @@
 				352443202A0BF08200EBC9E6 /* LocationManager.swift */,
 				3563DA212A0C999C006B0C7E /* MKSearchDelegate.swift */,
 				3563DA1D2A0C934B006B0C7E /* CustomAnnotation.swift */,
-				3563DA1F2A0C938B006B0C7E /* CustomAnnotationView.swift */,
 				35C8A0F02A0CFD2D00D92D52 /* PlaceAnnotation.swift */,
 				35907C8C2A0E626C00BDFE8F /* Storyboard.swift */,
 				352CDEE22A10A2E600695FA8 /* Artwork.swift */,
@@ -690,11 +681,8 @@
 				359B44572A0EC0E600006D09 /* CityDetails */,
 				354BE9262A0DD32300E12CE7 /* CityScreen */,
 				3524431D2A0BEAFA00EBC9E6 /* TempViewController.swift */,
-				35C8A0EE2A0CF21D00D92D52 /* TempVM.swift */,
 				35907C8A2A0E5C6400BDFE8F /* CityListViewController.swift */,
-				35E87E142A0E1DA3003C4D55 /* CityVM.swift */,
 				35C8A0EC2A0CF10300D92D52 /* HelpViewController.swift */,
-				35E87E162A0E4B73003C4D55 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -888,7 +876,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3534F4D72A0D44ED00148B00 /* Constants.swift in Sources */,
-				3563DA202A0C938B006B0C7E /* CustomAnnotationView.swift in Sources */,
 				359B446B2A0EC11400006D09 /* WeatherQualityItemView.swift in Sources */,
 				359B44812A0ECB5000006D09 /* Reachability.swift in Sources */,
 				359B44892A0ECCAE00006D09 /* APIConstants.swift in Sources */,
@@ -923,7 +910,6 @@
 				35C3D9672A123F460096BAAA /* WeatherListModel.swift in Sources */,
 				352CDEE32A10A2E600695FA8 /* Artwork.swift in Sources */,
 				359B44482A0EAAEB00006D09 /* AppComponents.swift in Sources */,
-				35E87E152A0E1DA3003C4D55 /* CityVM.swift in Sources */,
 				359B44512A0EAAF500006D09 /* ConditionImageConfigurator.swift in Sources */,
 				3524431E2A0BEAFA00EBC9E6 /* TempViewController.swift in Sources */,
 				359B448C2A0ECD1700006D09 /* APIError.swift in Sources */,
@@ -934,10 +920,8 @@
 				359B444C2A0EAAEB00006D09 /* ColorThemeData.swift in Sources */,
 				352CDEE52A10A99600695FA8 /* ArtworkViews.swift in Sources */,
 				352801302A0BAB8700D51F70 /* CLPlacemark.swift in Sources */,
-				35E87E172A0E4B73003C4D55 /* TabBarViewController.swift in Sources */,
 				35C8A0F12A0CFD2D00D92D52 /* PlaceAnnotation.swift in Sources */,
 				354BE9AD2A0DD42900E12CE7 /* AlertViewBuilder.swift in Sources */,
-				35C8A0EF2A0CF21D00D92D52 /* TempVM.swift in Sources */,
 				352801272A0BAB7B00D51F70 /* SearchCompletionTableViewCell.swift in Sources */,
 				352801312A0BAB8700D51F70 /* MKMapView.swift in Sources */,
 				359B444A2A0EAAEB00006D09 /* ColorThemeManager.swift in Sources */,
@@ -1155,7 +1139,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1191,7 +1175,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

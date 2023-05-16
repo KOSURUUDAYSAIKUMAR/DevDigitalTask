@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TempViewController.swift
 //  DevDigitalTask
 //
 //  Created by KOSURU UDAY SAIKUMAR on 10/05/23.
@@ -23,8 +23,14 @@ protocol AddCityViewDelegate: AnyObject {
 
 protocol AddCityDelegate: AddCityProtocol, DataStorageBasicProtocol, AnyObject {}
 
+enum TableType {
+    case searchCompletion
+    case mapItem
+}
+
 class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    // MARK: - User interface objects
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var close: UIButton!
     @IBOutlet weak var nearMeParent: UIView!
@@ -34,8 +40,9 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
-    private var stackViewExpandedHeight: CGFloat?
     
+    // MARK: - ViewController properties
+    private var stackViewExpandedHeight: CGFloat?
     
     // MARK: - Search Variables
     var searchCompletionRequest: MKLocalSearchCompleter? = MKLocalSearchCompleter()
@@ -138,17 +145,12 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         self.delegate = delegate
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // MARK: - CoreData
     var dataStorage: DataStorageProtocol?
     weak var cityDelegate: AddCityDelegate?
     weak var cityViewdelegate: AddCityViewDelegate?
     private var savedCities = [SavedCity]()
     
-    // MARK: - Setup
     override  func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -164,10 +166,11 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             searchBarTextField.font = UIFont.systemFont(ofSize: 15)
         }
         mapView.register(
-          ArtworkView.self,
-          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+            ArtworkView.self,
+            forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
+    // MARK: - Initial Methods
     func displayMapView() {
         nearMe = MKUserTrackingButton(mapView: mapView)
         nearMe!.frame.size = CGSize(width: 24, height: 24)
@@ -208,7 +211,6 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Map Gestures
-    
     @objc private func mapView(isPan gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
@@ -329,7 +331,7 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: Dev.CoreData.modelName)
         container.loadPersistentStores(completionHandler: { _, error in
@@ -339,22 +341,23 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Geocode
     func geocodeRequestInFuture(withLocation location: CLLocation, timeInterval: Double = 1.5, repeats: Bool = false) {
-            LocationManager.shared.getReverseGeoCodedLocation(location: location, completionHandler: { location, placemark, error in
-                let placeMark = [placemark!]
-                self.geocodeRequestDidComplete(withPlacemarks: placeMark, error: error)
-                let result = (repeats == true) ? nil : WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
-               
-                DispatchQueue.main.async {
-                    self.addPin(location: location!.coordinate, placemark: placemark!)
-                }
-                guard let savedCities = self.dataStorage?.getSavedItems else {
-                    return
-                }
-                self.savedCities = savedCities
-            })
+        LocationManager.shared.getReverseGeoCodedLocation(location: location, completionHandler: { location, placemark, error in
+            let placeMark = [placemark!]
+            self.geocodeRequestDidComplete(withPlacemarks: placeMark, error: error)
+            if !repeats {
+                WeatherCoreDataManager(managedContext: self.persistentContainer.newBackgroundContext()).addNewItem(placemark?.subLocality ?? "", lat: location?.coordinate.latitude ?? 0.0, long: location?.coordinate.longitude ?? 0.0)
+            }
+            DispatchQueue.main.async {
+                self.addPin(location: location!.coordinate, placemark: placemark!)
+            }
+            guard let savedCities = self.dataStorage?.getSavedItems else {
+                return
+            }
+            self.savedCities = savedCities
+        })
     }
     
     func geocodeRequestDidComplete(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
@@ -419,11 +422,6 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             let stackViewTranslation = tableViewPanInitialOffset - translationY
             tableView.contentOffset.y = max(0, stackViewTranslation)
-            
-            //Removed this code because scroll down in the table view hides the table when hitting the top, undesired behavior
-            //if stackViewTranslation < 0, let stackViewExpandedHeight = stackViewExpandedHeight {
-            //    stackViewHeight.constant = max(searchBarHeight, stackViewExpandedHeight + stackViewTranslation)
-            //}
         }
     }
     
@@ -451,6 +449,9 @@ class TempViewController: UIViewController, UIGestureRecognizerDelegate {
             tableViewHide()
         }
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 // MARK: - Map Delegate
 extension TempViewController: MKMapViewDelegate {
@@ -459,7 +460,7 @@ extension TempViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let artwork = view.annotation as? Artwork else {
-          return
+            return
         }
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         artwork.mapItem?.openInMaps(launchOptions: launchOptions)
@@ -553,7 +554,6 @@ extension TempViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableViewType {
         case .searchCompletion:
@@ -689,8 +689,6 @@ extension TempViewController {
             var annotations = [PlaceAnnotation]()
             for mapItem in response.mapItems {
                 mapAnnotations.insert(mapItem.placemark)
-             //   addPin(location: mapItem.placemark.coordinate, placemark: mapItem.placemark)
-//                geocodeRequestInFuture(withLocation: mapItem.placemark.location ?? CLLocation(latitude: mapItem.placemark.coordinate.latitude, longitude: mapItem.placemark.coordinate.longitude))
                 annotations.append(PlaceAnnotation(mapItem))
             }
             // 1 Search Result. Refer to delegate.
@@ -706,7 +704,6 @@ extension TempViewController {
         }
     }
 }
-
 
 // MARK: - Bottom Sheet Animations
 extension TempViewController {

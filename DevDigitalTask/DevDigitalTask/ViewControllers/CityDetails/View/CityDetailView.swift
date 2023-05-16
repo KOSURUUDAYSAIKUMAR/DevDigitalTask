@@ -1,4 +1,9 @@
-
+//
+//  CityDetailView.swift
+//  DevDigitalTask
+//
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
+//
 
 import UIKit
 
@@ -10,12 +15,10 @@ protocol CityDetailViewProtocol: UIView {
 class CityDetailView: UIView, CityDetailViewProtocol {
 
     // MARK: - Public properties
-
     weak var viewControllerOwner: CityDetailViewControllerDelegate?
     var colorThemeComponent: ColorThemeModel
 
     // MARK: - Private properties
-    
     private lazy var navigationBarBlurBackground: UIVisualEffectView = {
         let isNavBarDark = colorThemeComponent.cityDetails.isNavBarDark
         let view = UIVisualEffectView(effect: UIBlurEffect(style: isNavBarDark ? .dark : .light))
@@ -323,12 +326,10 @@ extension CityDetailView: UIScrollViewDelegate {
             scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
             return
         }
-
         updateAlphaViews()
         guard hourlyCollectionView.isCollectionViewStill else {
             return
         }
-
         updateAnimatedViews()
     }
 }

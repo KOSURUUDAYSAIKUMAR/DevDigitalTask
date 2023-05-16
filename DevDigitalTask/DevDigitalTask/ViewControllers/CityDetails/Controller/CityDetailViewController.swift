@@ -1,4 +1,9 @@
-
+//
+//  CityDetailViewController.swift
+//  DevDigitalTask
+//
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
+//
 
 import UIKit
 
@@ -9,8 +14,6 @@ protocol CityDetailViewControllerDelegate: AnyObject {
 class CityDetailViewController: UIViewController, CityDetailViewControllerDelegate {
 
     // MARK: - Public properties
-    
-    
     var localWeatherData: WeatherModel?
     var colorThemeComponent: ColorThemeModel
     
@@ -19,7 +22,7 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
     }
 
     // MARK: - Private properties
-    
+    private weak var updateTimer: Timer?
     private lazy var mainView: CityDetailViewProtocol = {
         let view = CityDetailView(colorThemeComponent: colorThemeComponent)
         view.viewControllerOwner = self
@@ -35,7 +38,6 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
         
         return button
     }()
-    private weak var updateTimer: Timer?
 
     // MARK: - Lifecycle
     
@@ -118,7 +120,6 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
         didUpdateWeatherDetailsFromServerUpdateUI(parameters: params, at: 0) { success in
             if success { }
         }
-  //      weatherManager.fetchWeather(by: safeWeatherData.cityRequest)
     }
 
     func didUpdateWeatherDetailsFromServerUpdateUI(parameters: [String:Any], at position: Int, completion: @escaping BoolCompletion) -> Void {

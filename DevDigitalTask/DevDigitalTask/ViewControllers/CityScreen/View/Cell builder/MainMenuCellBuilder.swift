@@ -1,30 +1,36 @@
+//
+//  MainMenuCellBuilder.swift
+//  DevDigitalTask
+//
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
+//
 
 import UIKit
 
 protocol MainMenuCellBuilderProtocol: AnyObject {
-
+    
     // You should call it first
     @discardableResult
     func erase() -> Self
     
     @discardableResult
     func build(colorThemeModel: ColorThemeModel?, conditionId: Int) -> Self
-
+    
     @discardableResult
     func build(cityLabelByString: String) -> Self
-
+    
     @discardableResult
     func build(degreeLabelByString: String) -> Self
-
+    
     @discardableResult
     func build(timeLabelByTimeZone: TimeZone?) -> Self
-
+    
     @discardableResult
     func build(imageByConditionId conditionId: Int) -> Self
-
+    
     @discardableResult
     func build(colorThemeModel: ColorThemeModel?, conditionId: Int, isDay: Bool)-> Self
-
+    
     var content: MainMenuTableViewCell { get }
 }
 
@@ -33,7 +39,7 @@ final class MainMenuCellBuilder {
 }
 
 extension MainMenuCellBuilder: MainMenuCellBuilderProtocol {
-
+    
     func erase() -> Self {
         _content = MainMenuTableViewCell()
         _content.accessibilityIdentifier = Dev.AccessabilityIdentifier.mainMenuTableViewCell
@@ -44,7 +50,6 @@ extension MainMenuCellBuilder: MainMenuCellBuilderProtocol {
         guard let safeColortheme = colorThemeModel else {
             return self
         }
-        
         _content.cityNameLabel.textColor = safeColortheme.getColorByConditionId(conditionId).labelsColor
         _content.degreeLabel.textColor = safeColortheme.getColorByConditionId(conditionId).labelsColor
         _content.timeLabel.textColor = safeColortheme.getColorByConditionId(conditionId).labelsColor
@@ -61,27 +66,27 @@ extension MainMenuCellBuilder: MainMenuCellBuilderProtocol {
         
         return self
     }
-
+    
     func build(cityLabelByString cityNameString: String) -> Self {
         _content.cityNameLabel.text = cityNameString
         return self
     }
-
+    
     func build(degreeLabelByString degreeString: String) -> Self {
         _content.degreeLabel.text = degreeString
         return self
     }
-
+    
     func build(timeLabelByTimeZone timeLabelTimeZone: TimeZone?) -> Self {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = timeLabelTimeZone
         dateFormatter.dateFormat = "hh:mm"
-
+        
         _content.timeLabel.text = dateFormatter.string(from: date)
         return self
     }
-
+    
     func build(imageByConditionId conditionId: Int) -> Self {
         let imageBuilder = ConditionImageBuilder()
         let newImage = imageBuilder
@@ -90,10 +95,10 @@ extension MainMenuCellBuilder: MainMenuCellBuilderProtocol {
             .content
         
         _content.conditionImage.image = newImage
-
+        
         return self
     }
-
+    
     func build(colorThemeModel: ColorThemeModel?, conditionId: Int, isDay: Bool) -> Self {
         guard let backgroundColors = colorThemeModel?.getColorByConditionId(conditionId).colors else {
             return self
@@ -108,7 +113,7 @@ extension MainMenuCellBuilder: MainMenuCellBuilderProtocol {
         _content.gradient.colors = colors
         return self
     }
-
+    
     var content: MainMenuTableViewCell {
         _content
     }

@@ -1,4 +1,9 @@
-
+//
+//  MainMenuTableViewCell.swift
+//  DevDigitalTask
+//
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
+//
 
 import UIKit
 
@@ -91,33 +96,24 @@ class MainMenuTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessibilityIdentifier = Dev.AccessabilityIdentifier.mainMenuTableViewCell
         selectionStyle = .none
-
         // Setting up cell appearance
-   //     DesignManager.setBackgroundStandartShape(layer: weatherBackgroundView.layer)
-
+        DesignManager.setBackgroundStandartShape(layer: weatherBackgroundView.layer)
         // Making cells shadow be able to spill over other cells
         layer.masksToBounds = false
         backgroundColor = .clear
-
         // Setting up gradient layer
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
- //       gradient.colors = DesignManager.getStandartGradientColor(withStyle: .blank)
-
+        gradient.colors = DesignManager.getStandartGradientColor(withStyle: .blank)
         weatherBackgroundView.layer.insertSublayer(gradient, at: 0) // Adding gradient at the bottom
-
         leftStackView.addArrangedSubview(cityNameLabel)
         leftStackView.addArrangedSubview(timeLabel)
-
         rightStackView.addArrangedSubview(conditionImage)
         rightStackView.addArrangedSubview(degreeLabel)
-
         mainStackView.addArrangedSubview(leftStackView)
         mainStackView.addArrangedSubview(rightStackView)
-
         addSubview(weatherBackgroundView)
         weatherBackgroundView.addSubview(mainStackView)
-        
         setUpConstraints()
     }
 
@@ -129,7 +125,7 @@ class MainMenuTableViewCell: UITableViewCell {
         super.layoutIfNeeded()
         // Configuring gradient frame when views calculating
         gradient.frame = weatherBackgroundView.bounds
-//        DesignManager.setBackgroundStandartShape(layer: gradient)
+        DesignManager.setBackgroundStandartShape(layer: gradient)
     }
 
     // MARK: - Private functions
@@ -147,7 +143,6 @@ class MainMenuTableViewCell: UITableViewCell {
         weatherBackgroundViewBottomConstraint.isActive = true
         weatherBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Grid.pt16).isActive = true
         weatherBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Grid.pt16).isActive = true
-        
 
         // Condition image
         conditionImage.heightAnchor.constraint(greaterThanOrEqualToConstant: Grid.pt40).isActive = true

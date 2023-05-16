@@ -51,17 +51,6 @@ struct Dev {
     
     struct AccessabilityIdentifier {
         static let mainMenuTableViewCell = "MainMenuTableViewCell"
-        
-        static let settingsButton = "SettingsButton"
-        static let searchButton = "SearchButton"
-        
-        static let addCityCell = "AddCityCell"
-        
-        static let colorSettingsTableView = "ColorSettingsTableView"
-        
-        static let settingsUnitSwitch = "SettingsUnitSwitch"
-        
-        static let settingsTableView = "SettingsTableView"
     }
 
     struct UserDefaults {
@@ -76,21 +65,10 @@ struct Dev {
     }
 
     struct Network {
-        static let baseURL = "https://api.openweathermap.org/data/3.0/onecall?"
         static let apiKey = "89d4e58d74ce5b6156d1fe8b4bf0c334"
-        static let lat = "lat="
-        static let lon = "lon="
-        static let appid = "appid="
-        static let units = "units="
-        static let exclude = "exclude="
         static let minutely = "minutely"
     }
-    
-    struct Links {
-        static let telegramAppLink = "https://t.me/climaWeather"
-        static let telegramAppstoreLink = "itms-apps://itunes.apple.com/app/id686449807"
-    }
-    
+
     struct Misc {
         static let defaultSityName = "-"
         static let colorThemeLocalFile = "ColorThemes"

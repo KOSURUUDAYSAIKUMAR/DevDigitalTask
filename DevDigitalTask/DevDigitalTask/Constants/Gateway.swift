@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class AppGateway: NSObject {
     static var sharedInstance = AppGateway()
     var configs: NSDictionary!

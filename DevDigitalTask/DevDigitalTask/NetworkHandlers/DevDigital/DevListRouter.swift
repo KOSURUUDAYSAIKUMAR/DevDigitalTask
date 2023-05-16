@@ -1,8 +1,8 @@
 //
-//  WisdomListRouter.swift
-//  WisdomTask
+//  DevApiRouter.swift
+//  DevDigitalTask
 //
-//  Created by KOSURU UDAY SAIKUMAR on 09/05/23.
+//  Created by KOSURU UDAY SAIKUMAR on 11/05/23.
 //
 
 import Foundation
@@ -16,8 +16,6 @@ extension DevApiRouter: NetworkConfiguration {
         switch self {
         case .list:
             return APIConstants.list
-        default:
-            break
         }
     }
     //   let urlString = "\(baseURL)lat=\(lat)&lon=\(lon)&appid=\(appid)&units=\(units)&exclude=\(Dev.Network.minutely)"
@@ -29,8 +27,6 @@ extension DevApiRouter: NetworkConfiguration {
                     "appid":urlParams["appid"]!,
                     "units":urlParams["units"]!,
                     "eclude":Dev.Network.minutely]
-        default:
-            break
         }
     }
     
@@ -38,8 +34,6 @@ extension DevApiRouter: NetworkConfiguration {
         switch self {
         case .list:
             return ["Content-Type":"application/json"]
-        default:
-            break
         }
     }
     
