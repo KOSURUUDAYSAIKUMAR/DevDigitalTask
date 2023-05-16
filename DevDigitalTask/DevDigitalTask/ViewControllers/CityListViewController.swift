@@ -117,17 +117,17 @@ class CityListViewController: UIViewController {
                 // Show error message
                 let removeEmptyCells: ((UIAlertAction) -> (Void)) = { _ in
                     for (i, weatherModel) in self.displayWeather.enumerated() {
-                        if weatherModel == nil {
+                        if weatherModel != nil {
                             self.dataStorage?.deleteItem(at: i)
                             self.displayWeather.remove(at: i)
-                            self.cityTableView.reloadData()
                         }
+                        self.cityTableView.reloadData()
                     }
                 }
                 
                 DispatchQueue.main.async {
                     let alert = AlertViewBuilder()
-                        .build(title: "Oops", message: error?.localizedDescription ?? "", preferredStyle: .alert)
+                        .build(title: "Oops", message: "Your account is temporary blocked due to exceeding of requests limitation of your subscription type. Please choose the proper subscription https://openweathermap.org/price", preferredStyle: .alert)
                         .build(title: "Ok", style: .default, handler: removeEmptyCells)
                         .content
                     self.present(alert, animated: true, completion: nil)

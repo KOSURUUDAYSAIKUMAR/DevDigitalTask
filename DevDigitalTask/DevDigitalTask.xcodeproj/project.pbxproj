@@ -310,8 +310,7 @@
 				359B44712A0ECB5000006D09 /* NetworkHandlers */,
 				354BE9382A0DD36900E12CE7 /* DataModel */,
 				35C8A0E32A0CE7E600D92D52 /* ViewControllers */,
-				352800EE2A0BA82800D51F70 /* SceneDelegate.swift */,
-				352800EC2A0BA82800D51F70 /* AppDelegate.swift */,
+				359A5DFE2A13A9FE00DC4460 /* Application */,
 				352800F22A0BA82800D51F70 /* Main.storyboard */,
 				352800F82A0BA82A00D51F70 /* Assets.xcassets */,
 				352800FA2A0BA82A00D51F70 /* LaunchScreen.storyboard */,
@@ -501,6 +500,15 @@
 				3582E70E2A0DE2ED00DAF76C /* orangeCloud@3x.png */,
 			);
 			path = "App Icons";
+			sourceTree = "<group>";
+		};
+		359A5DFE2A13A9FE00DC4460 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				352800EE2A0BA82800D51F70 /* SceneDelegate.swift */,
+				352800EC2A0BA82800D51F70 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		359B443E2A0EAAEB00006D09 /* App components */ = {

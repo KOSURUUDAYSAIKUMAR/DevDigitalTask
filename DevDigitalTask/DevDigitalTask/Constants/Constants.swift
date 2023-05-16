@@ -25,20 +25,10 @@ struct Dev {
         static let dailyForecastCell = "dailyForecastCell"
         static let hourlyForecastCell = "hourlyForecastCell"
         static let colorThemeCell = "colorThemeCell"
-        static let appIconCell = "AppIconCell"
     }
 
     struct ImageName {
         static let deleteImage = "DeleteAction"
-        
-        static let appIcon = "AppIcon"
-        static let darkWhiteCloudAppIcon3x = "darkWhiteCloudAppIcon@3x.png"
-        static let whiteSunAppIcon3x = "whiteSunAppIcon@3x.png"
-        static let cornerSun3x = "cornerSun@3x.png"
-        static let orangeCloud3x = "orangeCloud@3x.png"
-        static let moon3x = "moon@3x.png"
-        static let yellowSun3x = "yellowSun@3x.png"
-        static let blueWhiteCloud3x = "blueWhiteCloud@3x.png"
     }
     
     struct SystemImageName {
@@ -55,14 +45,6 @@ struct Dev {
         static let cloudRainFill = "cloud.rain.fill"
         static let cloudDrizzleFill = "cloud.drizzle.fill"
         static let cloudBoltFill = "cloud.bolt.fill"
-        static let switch2 = "switch.2"
-        static let magnifyingglass = "magnifyingglass"
-        static let checkmark = "checkmark"
-        static let envelope = "envelope"
-        static let paperplane = "paperplane"
-        static let paintbrush = "paintbrush"
-        static let ruler = "ruler"
-        
         static let arrowDown = "chevron.compact.down"
         static let arrowUp = "chevron.compact.up"
     }
@@ -95,7 +77,7 @@ struct Dev {
 
     struct Network {
         static let baseURL = "https://api.openweathermap.org/data/2.5/onecall?"
-        static let apiKey = "fae7190d7e6433ec3a45285ffcf55c86"
+        static let apiKey = "9cee49e3cfef8ebb98fdd1e8ecf9e748"
         static let lat = "lat="
         static let lon = "lon="
         static let appid = "appid="
