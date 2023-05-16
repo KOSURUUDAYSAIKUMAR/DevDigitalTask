@@ -5,7 +5,7 @@
 	<key>Development</key>
 	<dict>
 		<key>ApplicationGateWay</key>
-		<string>http://api.openweathermap.org/data/2.5/</string>
+		<string>https://api.openweathermap.org/data/3.0/</string>
 	</dict>
 </dict>
 </plist>
