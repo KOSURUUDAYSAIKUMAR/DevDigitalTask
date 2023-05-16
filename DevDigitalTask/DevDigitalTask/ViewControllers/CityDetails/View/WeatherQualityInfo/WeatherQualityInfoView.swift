@@ -149,7 +149,7 @@ class WeatherQualityInfoView: UIView {
 
         // Main stackView
         mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: Grid.pt20).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Grid.pt20).isActive = true
+        mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Grid.pt48).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Grid.pt20).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Grid.pt20).isActive = true
     }

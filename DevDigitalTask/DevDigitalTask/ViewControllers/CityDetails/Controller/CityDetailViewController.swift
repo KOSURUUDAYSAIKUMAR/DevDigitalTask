@@ -35,8 +35,6 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
         
         return button
     }()
-    
-    private var weatherManager = NetworkManager()
     private weak var updateTimer: Timer?
 
     // MARK: - Lifecycle
@@ -60,8 +58,6 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
         backButtonNavBarItem.action = #selector(backButtonPressed)
         backButtonNavBarItem.target = self
         navigationItem.leftBarButtonItem = backButtonNavBarItem
-
-        weatherManager.delegate = self
 
         if let safeWeatherData = localWeatherData {
             let navBarTitleColor: UIColor = colorThemeComponent.cityDetails.isStatusBarDark ? .black : .white
@@ -109,32 +105,46 @@ class CityDetailViewController: UIViewController, CityDetailViewControllerDelega
 
     @objc func fetchWeatherData() {
         guard let safeWeatherData = localWeatherData else { return }
-        weatherManager.fetchWeather(by: safeWeatherData.cityRequest)
+        let city = safeWeatherData.cityRequest
+        let lat = city.latitude
+        let lon = city.longitude
+        let appid = Dev.Network.apiKey
+        let units = UserDefaultsManager.UnitData.get()
+        let params = ["lat": lat,
+                      "lon":lon,
+                      "appid":appid,
+                      "units":units,
+                      "eclude":Dev.Network.minutely] as [String : Any]
+        didUpdateWeatherDetailsFromServerUpdateUI(parameters: params, at: 0) { success in
+            if success { }
+        }
+  //      weatherManager.fetchWeather(by: safeWeatherData.cityRequest)
     }
 
+    func didUpdateWeatherDetailsFromServerUpdateUI(parameters: [String:Any], at position: Int, completion: @escaping BoolCompletion) -> Void {
+        DevListHandler().fetchWisdomeList(index: position, page: parameters) { [self] data, error in
+            if error == nil {
+                // Display UI Part
+                DispatchQueue.main.async { [self] in
+                    self.mainView.updateData(data ?? WeatherModel(lat: 0, lon: 0, conditionId: 0, cityName: "", temperature: 0.0, timezone: 0, feelsLike: 0.0, description: "", humidity: 0, uviIndex: 0.0, wind: 0.0, cloudiness: 0, pressure: 0, visibility: 0, sunrise: 0, sunset: 0, daily: [], hourly: []))
+                }
+            } else {
+                // Show error message
+                let alert = AlertViewBuilder()
+                    .build(title: "Oops", message: error?.localizedDescription ?? "", preferredStyle: .alert)
+                    .build(title: "Ok", style: .default, handler: nil)
+                    .content
+                
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true) {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func backButtonPressed() {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
-extension CityDetailViewController: NetworkManagerDelegate {
-    func didUpdateWeather(_ weatherManager: NetworkManager, weather: WeatherModel, at position: Int) {
-        DispatchQueue.main.async {
-            self.mainView.updateData(weather)
-        }
-    }
-
-    func didFailWithError(error: Error) {
-        let alert = AlertViewBuilder()
-            .build(title: "Oops", message: error.localizedDescription, preferredStyle: .alert)
-            .build(title: "Ok", style: .default, handler: nil)
-            .content
-        
-        DispatchQueue.main.async {
-            self.present(alert, animated: true) {
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-}
-

@@ -4,9 +4,7 @@ import Photos
 import UIKit
 
 class NetworkHandler {
-  
-    weak var delegate: NetworkManagerDelegate?
-    
+      
     func makeAPICall(at position: Int = 0, router: NetworkConfiguration,
                      completion: @escaping(Result<[String: Any], APIError>)-> ()) {
         guard Reachability.isNetwrokReachable() else {
